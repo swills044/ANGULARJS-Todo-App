@@ -3,7 +3,7 @@ var AccessToken = require('../models/AccessToken').model;
 var User = require('../models/User').model;
 var BearerStrategy = require('passport-http-bearer').Strategy;
 var mongoose = require('mongoose');
-var config = require('../config');
+var config = require('../Config');
 
 
 passport.use(new BearerStrategy(
