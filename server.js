@@ -25,7 +25,7 @@ app.use(bodyParser.json({
 require('./auth');
 
 //Register routes
-require('./routes/ApiRoutes')(app, models);
+require('./routes/apiRoutes')(app, models);
 require('./routes/UserRoutes')(app);
 
 app.get('/', function (req, res) {
