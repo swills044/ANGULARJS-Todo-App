@@ -33,7 +33,7 @@ app.get('/', function (req, res) {
 })
 
 //Setup mongodb connection
-mongoose.connect('mongodb://localhost/todoDB');
+mongoose.connect('mongodb://todoadmin:Test1234@ds155191.mlab.com:55191/heroku_0lkc0xd4');
 var db = mongoose.connection; db.once('open', function(){console.log('DB connected')}); //Check Connection
 
 //Listen on port
