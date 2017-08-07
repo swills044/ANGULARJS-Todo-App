@@ -28,6 +28,10 @@ require('./auth');
 require('./routes/ApiRoutes')(app, models);
 require('./routes/UserRoutes')(app);
 
+app.get('/', function (req, res) {
+	res.send("Hello All Working!");
+})
+
 //Setup mongodb connection
 mongoose.connect('mongodb://localhost/todoDB');
 var db = mongoose.connection; db.once('open', function(){console.log('DB connected')}); //Check Connection
