@@ -37,5 +37,5 @@ mongoose.connect('mongodb://todoadmin:Test1234@ds155191.mlab.com:55191/heroku_0l
 var db = mongoose.connection; db.once('open', function(){console.log('DB connected')}); //Check Connection
 
 //Listen on port
-app.listen(8080, function(){console.log('connected!')});
+app.listen(process.env.PORT || 5000, function(){console.log('connected!')})
 
