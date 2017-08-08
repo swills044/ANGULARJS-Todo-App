@@ -28,10 +28,14 @@ require('./auth');
 require('./routes/apiRoutes')(app, models);
 require('./routes/UserRoutes')(app);
 
+// app.get('/', function (req, res) {
+// 	res.send("Hello All Working!");
+// })
+
 //Setup mongodb connection
-mongoose.connect('mongodb://localhost/todoDB');
+mongoose.connect('mongodb://todoadmin:Test1234@ds155191.mlab.com:55191/heroku_0lkc0xd4');
 var db = mongoose.connection; db.once('open', function(){console.log('DB connected')}); //Check Connection
 
 //Listen on port
-app.listen(8080, function(){console.log('connected!')});
+app.listen(process.env.PORT || 5000, function(){console.log('connected!')})
 
