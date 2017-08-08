@@ -28,9 +28,9 @@ require('./auth');
 require('./routes/apiRoutes')(app, models);
 require('./routes/UserRoutes')(app);
 
-app.get('/', function (req, res) {
-	res.send("Hello All Working!");
-})
+// app.get('/', function (req, res) {
+// 	res.send("Hello All Working!");
+// })
 
 //Setup mongodb connection
 mongoose.connect('mongodb://todoadmin:Test1234@ds155191.mlab.com:55191/heroku_0lkc0xd4');
