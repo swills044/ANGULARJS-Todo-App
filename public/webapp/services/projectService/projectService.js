@@ -10,7 +10,7 @@
 		service.get = function(){
 			return $http({
 		        method : "GET",
-		        url : end + 'api/project',
+		        url : window.endpoint + 'api/project',
 		        headers: {'Authorization': 'Bearer ' + localStorage.getItem("tokenString")}
 		    });
 
@@ -22,7 +22,7 @@
 
 			 return $http({
 		        method : "POST",
-		        url : end + 'api/projects/:_id',
+		        url : window.endpoint + 'api/projects/:_id',
 		        headers: {'Authorization': 'Bearer' + localStorage.getItem("tokenString")}
 		    });
 
@@ -32,7 +32,7 @@
 
 			return $http({
 		        method : "PUT",
-		        url : end + 'api/projects/:_id',
+		        url : window.endpoint + 'api/projects/:_id',
 		        headers: {'Authorization': 'Bearer' + localStorage.getItem("tokenString")}
 		    });
 
@@ -42,7 +42,7 @@
 
 			return $http({
 		        method : "GET",
-		        url : end + 'api/projects/:_id',
+		        url : window.endpoint + 'api/projects/:_id',
 		        headers: {'Authorization': 'Bearer' + localStorage.getItem("tokenString")}
 		    });
 

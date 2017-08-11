@@ -1,51 +1,41 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title></title>
+				<title></title>
+				<script type="text/javascript">
+				window.endpoint = 'http://localhost:5000/';
 
-
-	<script type="text/javascript">
-		var end = 'http://localhost:5000/';
-		window.endpoint = end;
-	</script>
-
-	<!--Libs-->
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js'></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js'></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js'></script>
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<!-- Src files -->
-	<!-- Top Bar -->
-	<script src='./src/js/topbar.js'></script>
-	<link rel="stylesheet" type="text/css" href="./src/css/topbar.css">
-	<!-- Sidebar-Left -->
-	<link rel="stylesheet" type="text/css" href="./src/css/sidebar-left.css">
+				</script>
+				<!--Libs-->
+				<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js'></script>
+				<script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js'></script>
+				<script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js'></script>
+				<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+				<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+				<!-- Src files -->
+				<!-- Top Bar -->
+				<script src='./src/js/topbar.js'></script>
+				<link rel="stylesheet" type="text/css" href="./src/css/topbar.css">
+				<!-- Sidebar-Left -->
+				<link rel="stylesheet" type="text/css" href="./src/css/sidebar-left.css">
 </head>
 
-
-
 <body ng-app='todoApp'>
-
-
-
-
-
-	<div ui-view>
-		<div ui-view='topbar'></div>
-		<div ui-view='sidebar-left'></div>
-		<div ui-view='sidebar-right'></div>
-	</div>
-
-<!-- Angular Files -->
-<script src='./app.js'></script>
-<!--Layout -->
-<script src='./layout/topbar/topbar.controller.js'></script>
-<!-- Project Service -->
-<script src='./services/projectService/projectService.js'></script>
-<!--Controllers -->
-<script src='./controllers/task/controller.js'></script>
-
-
+				<div ui-view>
+					<div ui-view='topbar'></div>
+					<div ui-view='sidebar-left'></div>
+					<div ui-view='content-view'></div>
+				</div>
+				<!-- Angular Files -->
+				<script src='./app.js'></script>
+				<!--Layout -->
+				<script src='./layout/topbar/topbar.controller.js'></script>
+				<!-- Project Service -->
+				<!--<script src='./services/projectService/projectService.js'></script>-->
+				<!--Controllers -->
+				<!--<script src='./controllers/task/controller.js'></script>-->
+				<script src='./tasks/task.module.js'></script>
+				<script src='./tasks/task.controller.js'></script>
 </body>
 </html>
