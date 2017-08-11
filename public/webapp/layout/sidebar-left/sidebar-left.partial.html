@@ -1,0 +1,35 @@
+<div class="left">
+<div class="item">
+<span class="glyphicon glyphicon-th-large"></span>
+</div>
+
+<div class="item">
+<span class="glyphicon glyphicon-log-out"></span>
+    Logout</div>
+ 
+</div>
+<div class="right">
+
+    <table class="table">
+    <tr>
+    <td class="title search col-md-9">
+    <div class="inner-addon right-addon">
+    <input class="col-md-12" type="search" placeholder="Поиск">
+    <i class="glyphicon glyphicon-search"></i>
+        </div>
+    </td>
+    <th valign="middle" colspan="2" class="title text-center">
+    <span class="glyphicon glyphicon-refresh"></span>
+    </th>
+    </tr>
+    <tr>
+    <td colspan="2" class="type">Your Projects:</td>
+  </tr>
+  <tr  ng-repeat='n in project'>
+    <td class="docs">
+        <a ui-sref='projects({ url: n._id})'> {{n.Name}} </a>
+    </td>
+  </tr>
+  
+</table>
+</div>

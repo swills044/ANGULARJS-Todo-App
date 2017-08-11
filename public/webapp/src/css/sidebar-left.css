@@ -1,0 +1,109 @@
+td, th {
+    vertical-align: middle !important;
+    }
+.left, .right {
+        float:left;
+        height:100vh;
+    }
+    
+.left {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5649e5+0,86abc9+53,2b88d9+100,7db9e8+100 */
+background: rgb(86,73,229); /* Old browsers */
+background: -moz-linear-gradient(45deg, rgba(86,73,229,1) 0%, rgba(134,171,201,1) 53%, rgba(43,136,217,1) 100%, rgba(125,185,232,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(45deg, rgba(86,73,229,1) 0%,rgba(134,171,201,1) 53%,rgba(43,136,217,1) 100%,rgba(125,185,232,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(45deg, rgba(86,73,229,1) 0%,rgba(134,171,201,1) 53%,rgba(43,136,217,1) 100%,rgba(125,185,232,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5649e5', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        display: inline-block;
+        white-space: nowrap;
+        width: 50px;
+        transition: width 1s ;
+    }
+
+.right {
+        background: #fff;
+        width: 350px;
+        transition: width 1s;
+        border-style:solid;
+        border-color:#ccc;
+        border-width:1px;
+    }    
+
+.left:hover {
+        width: 250px;
+    }    
+    
+.item:hover {
+        background-color:#ccc;
+        }
+        
+.left .glyphicon {
+        margin:15px;
+        width:20px;
+        color:#fff;
+    }
+    
+.right .glyphicon {
+        color:#a9a9a9;
+    }
+span.glyphicon.glyphicon-refresh{
+    font-size:17px;
+    vertical-align: middle !important;
+    }
+    
+.item {
+        height:50px;
+        overflow:hidden;
+        color:#fff;
+    }
+.title {
+        background-color:#eee;
+        border-style:solid;
+        border-color:#ccc;
+        border-width:1px;
+        box-sizing: border-box;
+    }
+.search:hover {
+        border-color:#4aa9fb;
+        border-width:1px;
+    }
+.search {
+    padding:3px 8px 3px !important;
+    }
+input[type=search] {
+    padding: 10px 0px 10px;
+	border: 0px solid #fff;
+	background: #eee;
+	-webkit-appearance: none;
+    width:90%;
+    float:none;
+}
+input[type=search]:focus {
+    outline:none;
+    }
+.type{
+    height: 47px;;
+    }
+.date{
+    background-color:#f7f7f7
+    }
+.docdate {
+    vertical-align:bottom !important;
+    }
+.distr {
+    margin: 0 0 5px;
+    font-size: 12px;
+    }
+.ndoc {
+    margin: 0 0 5px;
+    }
+.storage {
+    margin: 0;
+    color: #aaa !important;
+    font-size: 12px;
+    }
+        
+    
+    
+   
+
+    
