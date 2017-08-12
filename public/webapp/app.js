@@ -1,6 +1,5 @@
 (function(angular) {
 				var module = angular.module('todoApp', [
-								//'taskService',
 								'ui.router',
 								//'topbar.controller'
 				]);
@@ -19,7 +18,7 @@
 																},
 																'sidebar-left': {
 																				templateUrl: './layout/sidebar-left/sidebar-left.partial.html',
-																				//controller: 'getController'
+																				controller: 'sidebarleftcontroller'
 																}
 												}
 

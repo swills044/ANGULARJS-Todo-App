@@ -1,5 +1,8 @@
+
 .navbar-default {
-background: #4288cc;
+	background: #4288cc;
+	position: relative;
+    z-index: -1;
   }
 
 .navbar a {

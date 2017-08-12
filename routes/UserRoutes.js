@@ -7,7 +7,8 @@ var BearerStrategy = require('passport-http-bearer').Strategy;
 var UserLogin = require('../models/UserLogin').model;
 var UserProjects = require('../models/UserProjects').model;
 var project =  require('../models/Project').model;
-
+var Task = require('../models/Task').model;
+var path = require('path');
 
 module.exports = function(app){
 	//Register
@@ -277,12 +278,30 @@ module.exports = function(app){
             if (err) {
                 res.status(500).send(err);
             }   else {
-                res.status(200).send(token);
+                res.redirect('/');
             }
 
         })
     });
+    //GetTaskByUserid
+    app.get('/usertasks', passport.authenticate('bearer', {session: false}), function(req, res){
 
+        query = {
+            CreatedById: req.user.id
+        }
+        Task.find(query, function(err, task){
+            res.send(task)
+            if (err) {
+                res.status(400).send(err);
+            } else {
+                //res.status(200).send(task);
+            }
+
+
+        })
+
+
+    });
 
 };
 

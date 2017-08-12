@@ -8,5 +8,6 @@
     function taskController($scope, rTasks, rHeading) {
         $scope.heading = rHeading;
         $scope.tasks = rTasks;
+
     }
 }(angular));

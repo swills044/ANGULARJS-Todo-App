@@ -17,44 +17,14 @@
                 }
             },
             resolve: {
-                rTasks: function() {
-                    return [{
-                        "Id": 1,
-                        "Name": "Task 1"
-                    }, {
-                        "Id": 2,
-                        "Name": "Task 2"
-                    }, {
-                        "Id": 3,
-                        "Name": "Task 3"
-                    }, {
-                        "Id": 4,
-                        "Name": "Task 4"
-                    }, {
-                        "Id": 5,
-                        "Name": "Task 5"
-                    }, {
-                        "Id": 6,
-                        "Name": "Task 6"
-                    }, {
-                        "Id": 7,
-                        "Name": "Task 7"
-                    }, {
-                        "Id": 8,
-                        "Name": "Task 8"
-                    }, {
-                        "Id": 9,
-                        "Name": "Task 9"
-                    }, {
-                        "Id": 10,
-                        "Name": "Task 10"
-                    }, {
-                        "Id": 11,
-                        "Name": "Task 11"
-                    }, {
-                        "Id": 12,
-                        "Name": "Task 12"
-                    }]
+                rTasks: function(taskService) {
+                    return taskService.usertasks()
+                        .then(function mySuccess(response) {
+                             return response.data;
+                        }, function myError(response) {
+                            return response.statusText;
+
+                });
                 },
                 rHeading: function() {
                     return "Inbox"
