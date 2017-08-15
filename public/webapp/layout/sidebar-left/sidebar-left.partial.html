@@ -10,15 +10,18 @@
 </div>
 <div class="right">
 
-    <table class="table">
-    <tr>
+  <table class="table">
+    <!-- <tr>
     <td style='margin-top: 25px;'colspan="2" class="type">Your Projects:</td>
   </tr>
   <tr  ng-repeat='n in project'>
     <td class="docs">
         <a ui-sref='projects({ url: n._id})'> {{n.Name}} </a>
     </td>
-  </tr>
+  </tr> -->
+  <button ng-click='inbox()'>Inbox</button>
+  <button ng-click='today()'>Due today</button>
+  <button ng-click='week()'>Due this week</button>
   
 </table>
 </div>

@@ -290,11 +290,11 @@ module.exports = function(app){
             CreatedById: req.user.id
         }
         Task.find(query, function(err, task){
-            res.send(task)
+           
             if (err) {
                 res.status(400).send(err);
             } else {
-                //res.status(200).send(task);
+                res.status(200).send(task);
             }
 
 

@@ -19,7 +19,7 @@ function login(event) {
                 localStorage.setItem('tokenString', tokenString);
                 location.href = 'webapp/index.html';
 
-            }, 2000);
+            }, 100);
         })
         .fail(function(error) {
             $('#login-button').removeClass('animated bounceIn');
