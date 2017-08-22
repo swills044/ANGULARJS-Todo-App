@@ -2,63 +2,49 @@
 <html>
 
 <head>
-				<title></title>
-				<script type="text/javascript">
-				window.endpoint = 'http://localhost:5000/';
-
-				</script>
-				<!--Libs-->
-				<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js'></script>
-				<script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js'></script>
-				<script
-				  src="https://code.jquery.com/jquery-3.2.1.js"
-				  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-				  crossorigin="anonymous"></script>
-				<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-				<!-- Latest compiled and minified CSS -->
-				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-				<!-- jQuery library -->
-				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-				<!-- Latest compiled JavaScript -->
-				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-				<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
-				<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.1/angular-moment.js"></script>
-				<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
-				<!-- Src files -->
-				<link rel="stylesheet" type="text/css" href="./src/css/cssreset.css">
-				<!-- Top Bar -->
-				<script src='./src/js/topbar.js'></script>
-				<link rel="stylesheet" type="text/css" href="./src/css/topbar.css">
-				<!-- Sidebar-Left -->
-				<link rel="stylesheet" type="text/css" href="./src/css/sidebar-left.css">
-				<link rel="stylesheet" type="text/css" href="./src/css/style.css">
+    <title></title>
+    <script type="text/javascript">
+        window.endpoint = 'http://localhost:5000/';
+    </script>
+    <!--Libs-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./src/css/style.css">
 </head>
 
-	<body ng-app='todoApp'>
-			
-				<div ui-view>
-					<div ui-view='topbar'></div>
-					<div ui-view='sidebar-left'></div>
-					<div ui-view='content-view'></div>
-				</div>
-		
-				
-				<!-- Angular Files -->
-				<script src='./app.js'></script>
-				<!--Layout -->
-				<script src='./layout/topbar/topbarcontroller.js'></script>
-				<!-- Project Service -->
-				<script src='./services/projectService/projectService.js'></script>
-				<!--Task Service-->
-				<script src='./services/taskService/taskService.js'></script>
-				<!--Controllers -->
-				<script src='./layout/sidebar-left/sidebarleftcontroller.js'></script>
-				<script src='./tasks/task.module.js'></script>
-				<script src='./tasks/task.controller.js'></script>
-
-				<script src='./projects/project.controller.js'></script>
-
+<body ng-app='todoApp'>
+    <div ui-view>
+        <div ui-view='topbar' id="topbar"></div>
+        <div ui-view='sidebar-left' id="sidebar-left"></div>
+        <!--<div ui-view='content-view' id="content"></div>-->
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js'></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.1/angular-moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <!-- Angular Files -->
+    <script src='./app.js'></script>
+    <!--Layout -->
+    <script src='./layout/topbar/topbarcontroller.js'></script>
+    <!-- Project Service -->
+    <script src='./services/projectService/projectService.js'></script>
+    <!--Task Service-->
+    <script src='./services/taskService/taskService.js'></script>
+    <!--Controllers -->
+    <script src='./layout/sidebar-left/sidebarleftcontroller.js'></script>
+    <script src='./tasks/task.module.js'></script>
+    <script src='./tasks/task.controller.js'></script>
+    <script src='./projects/project.controller.js'></script>
+    <!-- Top Bar -->
+    <script src='./src/js/topbar.js'></script>
 </body>
+
 </html>
