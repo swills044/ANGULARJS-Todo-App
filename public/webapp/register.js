@@ -16,7 +16,7 @@ function register(event) {
             EmailAddress: emailaddress,
             Password: password
         }, function(res) {
-            setTimeout(function(){ $("#register-button").html("User Created."); setTimeout(function(){$('.login').removeClass('hide');$('.register').addClass('hide')}, 500)}, 500);
+            setTimeout(function(){ $("#register-button").html("User Created."); setTimeout(function(){$('.login').removeClass('hide');$('.register').addClass('hide')}, 200)}, 200);
             
         console.log(res)
 

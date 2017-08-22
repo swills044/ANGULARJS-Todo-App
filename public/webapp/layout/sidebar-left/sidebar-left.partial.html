@@ -1,27 +1,36 @@
-<div class="left">
-<div class="item">
-<span class="glyphicon glyphicon-th-large"></span>
-</div>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<div class="item">
-<span class="glyphicon glyphicon-log-out"></span>
-    <button ng-click='logout()'>Logout</button></div>
- 
-</div>
-<div class="right">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <table class="table">
-    <!-- <tr>
-    <td style='margin-top: 25px;'colspan="2" class="type">Your Projects:</td>
-  </tr>
-  <tr  ng-repeat='n in project'>
-    <td class="docs">
-        <a ui-sref='projects({ url: n._id})'> {{n.Name}} </a>
-    </td>
-  </tr> -->
-  <button ng-click='inbox()'>Inbox</button>
-  <button ng-click='today()'>Due today</button>
-  <button ng-click='week()'>Due this week</button>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div class="right" style='margin-top: 50px;'>
+
+  <div>
+    
+    <p><i class="glyphicon glyphicon-inbox"></i><a ng-click='inbox()'>Inbox</a></p>
+    <p><i class="glyphicon glyphicon-exclamation-sign"></i><a ng-click='today()'>Today</a></p>
+    <p><i class="glyphicon glyphicon-time"></i><a ng-click='week()'>Next 7 days</a></p>
+
+  </div>
+
+    <div>
+      <h3>Projects</h1>
+      <hr>
+      <ul ng-repeat='n in projects'>
+      <a ng-click='projectpage(n._id)'> {{n.Name}} </a>    
+    </ul>
+    </div>
+    
+
+
+<a href="" class="action action_add_item" ng-click='showForm'><span class="glyphicon glyphiconc glyphicon-plus"></span>Add project</a>
+<form>
   
-</table>
+  <input type="text" ng-model="Name" placeholder="Project">
+  <input type="submit" ng-click='newProject()'>
+</form>
 </div>

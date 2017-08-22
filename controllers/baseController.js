@@ -3,9 +3,12 @@ var mongoose = require('mongoose');
 module.exports = function(c){
 
 	var Model = c.model;
-
+    
 	function getAll(req, res) {
-		var query = Model.find();
+        var user = {
+            CreatedById: req.user.id
+        }
+		var query = Model.find(user);
 		query.exec(function (err, models) {
             if (err)
                 res.status(500).send(err);

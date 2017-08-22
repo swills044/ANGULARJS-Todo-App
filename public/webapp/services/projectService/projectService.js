@@ -12,43 +12,25 @@
 		        method : "GET",
 		        url : window.endpoint + 'api/project',
 		        headers: {'Authorization': 'Bearer ' + localStorage.getItem("tokenString")}
-		    });
-
-		    
-
-		};
-	//Post
-		service.post = function(){
-
-			 return $http({
-		        method : "POST",
-		        url : window.endpoint + 'api/projects/:_id',
-		        headers: {'Authorization': 'Bearer' + localStorage.getItem("tokenString")}
-		    });
-
-		};
-	//Put
-		service.put = function($scope, $http){
-
-			return $http({
-		        method : "PUT",
-		        url : window.endpoint + 'api/projects/:_id',
-		        headers: {'Authorization': 'Bearer' + localStorage.getItem("tokenString")}
-		    });
+		    });	    
 
 		};
 	//GetById
-		service.getById = function(){
-
+		service.getById = function(id){
 			return $http({
-		        method : "GET",
-		        url : window.endpoint + 'api/projects/:_id',
-		        headers: {'Authorization': 'Bearer' + localStorage.getItem("tokenString")}
-		    });
-
+				method: "GET",
+				url: window.endpoint + 'api/project/' + id.id,
+				headers: {'Authorization': 'Bearer ' + localStorage.getItem("tokenString")}
+			})
 		}
-
-
+	//Project tasks
+		service.getTaskByProjectId = function(id){
+			return $http({
+				method: "GET",
+				url: window.endpoint + 'api/project_tasks/' + id.id,
+				headers: {'Authorization': 'Bearer ' + localStorage.getItem("tokenString")}
+			})
+		}
 
 	return service;
 }

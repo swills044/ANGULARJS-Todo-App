@@ -1,3 +1,4 @@
+
 td, th {
     vertical-align: middle !important;
     }
@@ -6,6 +7,10 @@ td, th {
         height:100vh;
     }
     
+.right .glyphiconc {
+    color: #dd4b39!important;
+}
+
 .left {
         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5649e5+0,86abc9+53,2b88d9+100,7db9e8+100 */
 background: rgb(86,73,229); /* Old browsers */
@@ -20,6 +25,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5649e5', end
     }
 
 .right {
+        margin-top: 50px;
         background: #fff;
         width: 350px;
         transition: width 1s;

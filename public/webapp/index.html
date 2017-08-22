@@ -15,7 +15,14 @@
 				  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
 				  crossorigin="anonymous"></script>
 				<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-				<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+				<!-- Latest compiled and minified CSS -->
+				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+				<!-- jQuery library -->
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+				<!-- Latest compiled JavaScript -->
+				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 				<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
 				<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.1/angular-moment.js"></script>
 				<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
@@ -26,26 +33,33 @@
 				<link rel="stylesheet" type="text/css" href="./src/css/topbar.css">
 				<!-- Sidebar-Left -->
 				<link rel="stylesheet" type="text/css" href="./src/css/sidebar-left.css">
+				<link rel="stylesheet" type="text/css" href="./src/css/style.css">
 </head>
 
-<body ng-app='todoApp'>
+	<body ng-app='todoApp'>
+			
 				<div ui-view>
 					<div ui-view='topbar'></div>
 					<div ui-view='sidebar-left'></div>
 					<div ui-view='content-view'></div>
 				</div>
+		
+				
 				<!-- Angular Files -->
 				<script src='./app.js'></script>
 				<!--Layout -->
-				<script src='./layout/topbar/topbar.controller.js'></script>
+				<script src='./layout/topbar/topbarcontroller.js'></script>
 				<!-- Project Service -->
-				<!--<script src='./services/projectService/projectService.js'></script>-->
+				<script src='./services/projectService/projectService.js'></script>
 				<!--Task Service-->
 				<script src='./services/taskService/taskService.js'></script>
 				<!--Controllers -->
-				<!--<script src='./controllers/task/controller.js'></script>-->
 				<script src='./layout/sidebar-left/sidebarleftcontroller.js'></script>
 				<script src='./tasks/task.module.js'></script>
 				<script src='./tasks/task.controller.js'></script>
+
+				<script src='./projects/project.module.js'></script>
+				<script src='./projects/project.controller.js'></script>
+
 </body>
 </html>

@@ -1,0 +1,25 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div style="margin-top: 50px;">
+	
+		<div>
+			<h1 >{{project.Name}}</h1>
+			<ul>
+				<li ng-repeat="t in tasks track by $index">
+					{{t.Name}}
+					{{t.DueDate}}					
+					<span class="glyphicon glyphicon-trash" ng-click='delete(t._id)'></span>
+				</li>
+			</ul>
+		</div>
+		
+</div>
+
+

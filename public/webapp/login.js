@@ -25,8 +25,8 @@ function login(event) {
             $('#login-button').removeClass('animated bounceIn');
             $('#login-button').addClass('animated shake');
             $("#login-button").html("Try Again");
-            if (error.responseJSON.error)
-                $("#login-failed p.lead").text(error.responseJSON.error);
+            if (error)
+                $("#login-failed p.lead").text(error);
             $("#login-failed").show();
             $("#login-failed").show();
         });

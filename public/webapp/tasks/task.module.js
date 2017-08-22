@@ -28,6 +28,16 @@
                 },
                 rHeading: function() {
                     return "Inbox"
+                },
+                rProjects: function(projectService) {
+                    return projectService.get()
+                        .then(function mySuccess(response) {
+                            return response.data;
+                        }, function myError(response) {
+                            return response.statusText;
+
+                });
+             
                 }
             }
         });
@@ -42,18 +52,9 @@
             },
             resolve: {
                 rTasks: function(taskService){
-                    return taskService.usertasks()
+                    return taskService.usertaskstoday()
                         .then(function mySuccess(response){                          
-                            //Check date filter
-                                var tasks = [];
-                                response.data.forEach(function(task){
-                                    var date = moment(task.DueDate).format('YYYY-MM-DD');
-                                    var now = moment(Date.now()).format('YYYY-MM-DD');          
-                                    if ( date == now) {
-                                        tasks.push(task);                                 
-                                    }
-                                })
-                                return tasks;
+                            return response.data;
                         }, function myError(response) {
                             return response.statusText;
                         }
@@ -75,25 +76,9 @@
             },
             resolve: {
                 rTasks: function(taskService){
-                    return taskService.usertasks()
+                    return taskService.usertasksweek()
                         .then(function mySuccess(response){
-                            var tasks = [];
-                            response.data.forEach(function(task){
-                                var date = moment(task.DueDate).format('DD');
-                                var date = parseInt(date);
-                                var today = moment(Date.now()).format('DD');
-                                var today = parseInt(today);
-                                var end = today + 7;
-                                for(;today < end;  today++){
-                                    var days = []
-                                    days.push(today);
-                                    var i = days.indexOf(date);
-                                    if (i > -1) {
-                                        tasks.push(task);
-                                    }
-                                }
-                            })
-                            return tasks;
+                            return response.data;
                         }, function myError(response) {
                             return response.statusText;
                         } 

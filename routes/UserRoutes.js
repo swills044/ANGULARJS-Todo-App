@@ -9,6 +9,7 @@ var UserProjects = require('../models/UserProjects').model;
 var project =  require('../models/Project').model;
 var Task = require('../models/Task').model;
 var path = require('path');
+var moment = require('moment');
 
 module.exports = function(app){
 	//Register
@@ -299,10 +300,81 @@ module.exports = function(app){
 
 
         })
-
-
     });
+    //get tasks today
+    app.get('/tasktoday', passport.authenticate('bearer', {session: false}), function(req,res){
+        var query = {
+            CreatedById: req.user.id
+        }
+
+        Task.find(query, function(err, task){
+            if (err) {
+                res.status(500).send('failed');
+            }
+            else {
+                var tasks = [];
+                task.forEach(function(task){
+                    var date = moment(task.DueDate).format('YYYY-MM-DD');
+                    var now = moment(Date.now()).format('YYYY-MM-DD');          
+                    if ( date == now) {
+                        tasks.push(task);                                 
+                    }
+                })
+                res.status(200).json(tasks);
+            }
+        })
+    })
+    //get tasks this week
+    app.get('/taskweek', passport.authenticate('bearer', {session: false}), function(req,res){
+        var query = {
+            CreatedById: req.user.id
+        }
+
+        Task.find(query, function(err, task){
+            if (err) {
+                res.status(500).send('failed');
+            }
+            else {
+                var tasks = [];
+                    task.forEach(function(task){
+                        var date = moment(task.DueDate).format('DD');
+                        var date = parseInt(date);
+                        var today = moment(Date.now()).format('DD');
+                        var today = parseInt(today);
+                        var end = today + 7;
+                        for(;today < end;  today++){
+                            var days = []
+                            days.push(today);
+                            var i = days.indexOf(date);
+                            if (i > -1) {
+                                tasks.push(task);
+                            }
+                        }
+                    })
+                            
+                res.status(200).json(tasks);
+            }
+        })
+    })
+
+    app.get('/api/project_tasks/:id', passport.authenticate('bearer', {session: false}), function(req, res){
+
+    var query = {
+        Project: req.params.id
+    }
+    console.log(query)
+    Task.find(query, function(err, task){
+        if (err) {
+            res.status(500).send(err);
+        }
+        else{
+            res.status(200).send(task);
+        }
+    })
+
+})
 
 };
+
 
  

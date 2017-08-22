@@ -1,0 +1,12 @@
+body{
+	background: #fafafa;
+}
+a {
+    color: #303333 !important;
+    text-decoration: none;
+}
+a.action {
+    padding: 1px;
+    text-decoration: none;
+    color: #dd4b39 !important;
+}
