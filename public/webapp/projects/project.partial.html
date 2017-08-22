@@ -10,12 +10,20 @@
 <div style="margin-top: 50px;">
 	
 		<div>
-			<h1 >{{project.Name}}</h1>
+			<h1>{{project.Name}}</h1>
 			<ul>
+				<h5>Tasks</h5>
 				<li ng-repeat="t in tasks track by $index">
 					{{t.Name}}
 					{{t.DueDate}}					
 					<span class="glyphicon glyphicon-trash" ng-click='delete(t._id)'></span>
+				</li>
+			</ul>
+			<ul>
+				<h5>Users</h5>
+				<span class="glyphicon glyphiconc glyphicon-plus" ng-click='linkuser(project._id)'></span><input type="text" required>
+				<li ng-repeat="u in users">
+					{{u}}
 				</li>
 			</ul>
 		</div>

@@ -140,10 +140,8 @@ module.exports = function(app){
 	}); 
     //Link User
     app.post('/api/project/linkuser', function(req, res){
-
         var query = {
             Project: req.body.Project,
-
         }
         //Search for project
         UserProjects.findOne(query, function (err, project){ 
@@ -229,7 +227,7 @@ module.exports = function(app){
 
             project.find(query, function(err, project){
                 
-                if (project.CreatedById == req.user._id&&project.length > 0) {
+                if (project.CreatedById == req.user._id) {
                     res.status(500).send('failed');
                     next();
                 }
@@ -379,7 +377,7 @@ module.exports = function(app){
     var query = {
         Project: req.params.id
     }
-    console.log(query)
+
     Task.find(query, function(err, task){
         if (err) {
             res.status(500).send(err);
@@ -389,7 +387,42 @@ module.exports = function(app){
         }
     })
 
-})
+    })
+
+    //User projects
+    app.get('/userprojects/:id', passport.authenticate('bearer', {session: false}), function(req, res){
+        var query = {
+            Project: req.params.id
+        }
+        UserProjects.find(query, function(err, project){
+
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                users = [];
+
+                    for (var i = 0; i < project.length; i++) {
+                    pquery = {
+                        _id: project[i].User
+                    }
+                    User.find(pquery, function(err, user){
+                        if (err) {
+                            res.status(500).send(err);
+                        }else {
+                            user.forEach(function(user){
+                                users.push(user.UserName);
+                                console.log(users)                         
+                            })
+
+                        }
+                    })
+                    } 
+                res.status(200).send(users);   
+            }
+
+
+        })
+    })
 
 };
 

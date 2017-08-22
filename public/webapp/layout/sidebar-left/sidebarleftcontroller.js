@@ -23,6 +23,20 @@
 			$state.go('root.project', {id: id});
 		}  
 
+		$scope.delete = function(id){
+
+			var config = {
+	            headers : {
+	                'Authorization': 'Bearer ' + localStorage.getItem('tokenString')
+	            }
+	        }
+
+			$http.delete(window.endpoint + 'api/project/' + id, config)
+			.then(function(){
+				location.reload();
+			})
+		} 
+
 		$scope.newProject = function(){
 			var data = {Name: $scope.Name};
 

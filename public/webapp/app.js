@@ -64,6 +64,15 @@
 													return res.statusText;
 												} 
 												)
+										},
+										users: function(projectService, $stateParams){
+											return projectService.userprojects($stateParams)
+												.then(function mySuccess(res){
+													return res.data;
+												}, function myError(res){
+													return res.statusText;
+												} 
+												)
 										}
 									}
 								})

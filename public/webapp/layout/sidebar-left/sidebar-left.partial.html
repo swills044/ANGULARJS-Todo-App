@@ -21,7 +21,7 @@
       <h3>Projects</h1>
       <hr>
       <ul ng-repeat='n in projects'>
-      <a ng-click='projectpage(n._id)'> {{n.Name}} </a>    
+      <a ng-click='projectpage(n._id)'> {{n.Name}} </a><span class="glyphicon glyphicon-remove" ng-click='delete(n._id)'></span>
     </ul>
     </div>
     
