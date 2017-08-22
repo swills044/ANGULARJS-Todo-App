@@ -217,16 +217,27 @@ module.exports = function(app){
                 })        
     });
     //Add project
-    app.post('/api/projects', passport.authenticate('bearer', {session: false}), function(req, res){
+    app.post('/api/projects', passport.authenticate('bearer', {session: false}), function(req, res, next){
 
             var data = new project(req.body);
-        
+            var query = {
+                Name: req.body.Name
+            }
+
             //Add a project and a userproject
             data.CreatedById = req.user._id;
-            
-            data.save(function(err){
-                if (err)
+
+            project.find(query, function(err, project){
+                
+                if (project.CreatedById == req.user._id&&project.length > 0) {
+                    res.status(500).send('failed');
+                    next();
+                }
+                if (project.length == 0) {
+                    data.save(function(err){
+                if (err) {
                     res.status(500).send(err);
+                }
                 else {
                     
                     var query = {
@@ -252,7 +263,7 @@ module.exports = function(app){
                             UserProject.save(function(err){
 
                                 if (err) {
-                                    res.status(500).send(err);
+                                    res.status(500).send('hi');
                                 }
                                 res.status(200).json(UserProject);
 
@@ -266,6 +277,12 @@ module.exports = function(app){
 
 
             })
+                }
+                if(err){
+                    res.status(500).send(err);
+                }
+            })
+            
     });
     //Logout
     app.post('/logout', passport.authenticate('bearer', {session: false}), function(req, res){

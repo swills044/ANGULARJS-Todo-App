@@ -5,7 +5,6 @@ var projectSchema = new mongoose.Schema({
 	Name: {
 		type: String,
 		required: true,
-		unique: true
 	},
 	CreatedById: {
 		type: Schema.Types.ObjectId

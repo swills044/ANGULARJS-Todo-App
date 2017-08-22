@@ -31,7 +31,7 @@
 	                'Authorization': 'Bearer ' + localStorage.getItem('tokenString')
 	            }
 	        }
-			$http.post(window.endpoint +'api/project', data, config)
+			$http.post(window.endpoint +'api/projects', data, config)
 			.then(function(){
 				location.reload();
 				
