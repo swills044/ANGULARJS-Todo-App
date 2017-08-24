@@ -3,13 +3,13 @@
 
     module.controller('projectController', projectController);
 
-    projectController.$inject = ['$scope','$http', '$window', 'project', 'tasks', 'users'];
+    projectController.$inject = ['$scope','$http', '$window', 'project', 'tasks',  'projectusers', 'users'];
 
-    function projectController($scope, $http, $window, project, tasks, users) {
+    function projectController($scope, $http, $window, project, tasks, projectusers, users) {
         $scope.project = project;   
         $scope.tasks = tasks;
+        $scope.projectusers = projectusers;
         $scope.users = users;
-
         
 		$scope.delete = function(id){
 			var config = {
@@ -20,7 +20,7 @@
 
 			$http.delete(window.endpoint + 'api/task/' + id, config)
 			.then(function(){
-				location.reload();
+				$state.reload();
 			})
 		}  
 		var username = $scope.username;
@@ -34,7 +34,7 @@
 	        }
 			$http.post(window.endpoint +'api/project/linkuser', data, config)
 			.then(function(){
-				location.reload();
+				$state.reload();
 				
 			})
 

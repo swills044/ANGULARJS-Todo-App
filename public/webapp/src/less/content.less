@@ -1,0 +1,84 @@
+#content {
+	.container {
+		
+		.tasks {
+			ul {
+				list-style: none;
+				cursor: pointer;
+				div	{
+					width: 50%;
+					.delete {
+						float: left;
+						display: inline;
+						color: @brand-primary;
+						padding: 8px;	
+					}
+					li {
+						padding: 8px;
+						overflow: auto;
+						border-bottom: 1px solid @concrete;
+						span {
+							width: 75%;
+							font-size: 14px;
+						}
+						.cal {
+							float: right;
+							.date {
+								font-size: 12px;
+								padding: 8px;
+							}
+							i {
+								color: @brand-primary;
+							}
+						}
+					}
+				}
+			}
+		}
+		.add_task {
+			min-height: 24px;
+		    display: inline-flex;
+		    align-items: center;
+			i {
+				color: @brand-primary;	
+				cursor: pointer;
+			}
+			.task_add{
+				color: @brand-primary;
+				font-size: 14px;
+			}
+			.form {
+				form {
+					width: 50%;
+					border: 1px solid @concrete;
+					.task {
+						width: 75%;
+						border-bottom: 1px solid @concrete;
+						height: 40px; 
+					}
+					input{
+						border: none;
+						padding: 0px;
+						&:focus{
+							outline: none;
+						}
+					}
+					input[type="submit"]{
+						display: block;
+					}
+					input[type="number"]{
+						border-left: 1px solid @concrete;
+					}
+
+					input::-webkit-input-placeholder{
+						font-size: 14px;
+                    	font-weight: 400;
+					}
+					#datepicker {
+						width: 0;
+					}
+			}
+			}
+		}
+	}
+}

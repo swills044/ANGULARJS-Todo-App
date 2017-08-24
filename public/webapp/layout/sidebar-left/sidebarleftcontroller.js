@@ -19,9 +19,31 @@
 		}
 
 		$scope.projectpage = function(id){
-			
+
 			$state.go('root.project', {id: id});
 		}  
+
+		$scope.form = false;
+        $scope.showform = function(){
+        	if ($scope.form == true) {
+        		$scope.form = false
+        	}else{
+        		$scope.form = true;
+        	}
+
+        }
+
+        $('.open-datetimepicker').click(function(event){
+		    event.preventDefault();
+		    $('#datepicker').focus();
+		});
+
+		$(function () {
+			$( "#datepicker" ).datepicker({
+				changeMonth: true,//this option for allowing user to select month
+				changeYear: true //this option for allowing user to select from year range
+			});
+		})
 
 		$scope.delete = function(id){
 
@@ -31,14 +53,14 @@
 	            }
 	        }
 
-			$http.delete(window.endpoint + 'api/project/' + id, config)
+			$http.delete(window.endpoint + 'userproject/' + id, config)
 			.then(function(){
-				location.reload();
+				$state.reload();
 			})
 		} 
 
 		$scope.newProject = function(){
-			var data = {Name: $scope.Name};
+			var data = {Name: $scope.name};
 
 			var config = {
 	            headers : {
@@ -47,7 +69,7 @@
 	        }
 			$http.post(window.endpoint +'api/projects', data, config)
 			.then(function(){
-				location.reload();
+				$state.reload();
 				
 			})
 		}     

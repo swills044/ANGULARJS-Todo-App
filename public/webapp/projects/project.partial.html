@@ -1,33 +1,50 @@
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<div style="margin-top: 50px;">
-	
-		<div>
-			<h1>{{project.Name}}</h1>
+<div id='project'>
+	<div class="container">
+		<h3 class="heading section-title">{{project.Name}}</h3>
+		<div class="tasks">
 			<ul>
-				<h5>Tasks</h5>
-				<li ng-repeat="t in tasks track by $index">
-					{{t.Name}}
-					{{t.DueDate}}					
-					<span class="glyphicon glyphicon-trash" ng-click='delete(t._id)'></span>
-				</li>
-			</ul>
-			<ul>
-				<h5>Users</h5>
-				<span class="glyphicon glyphiconc glyphicon-plus" ng-click='linkuser(project._id)'></span><input type="text" required>
-				<li ng-repeat="u in users">
-					{{u}}
-				</li>
+				<div ng-repeat="t in tasks">
+					<i class="material-icons delete" ng-click="delete(t._id)">delete_sweep</i>
+					<li>
+						<span>{{t.Name}}</span>	
+						<div class="cal">
+							<i class="material-icons">date_range</i>
+							<span class="date">{{t.DueDate}}</span>
+						</div>
+					</li>
+				</div>
 			</ul>
 		</div>
-		
+		<div class="projectusers">
+			<ul>
+				<div ng-repeat="u in projectusers">
+					<i class="material-icons delete">verified_user</i>
+					<li>
+						<span>{{u}}</span>
+					</li>
+				</div>
+			</ul>
+		</div>
+		<div class="linkuser">
+			<form>
+
+				<input type="text" ng-model="user" list="projects" placeholder="User">
+
+				<datalist id="projects" >
+				    <option ng-repeat="p in projects" value="{{p._id}}">{{p.Name}}</option>
+				</datalist>
+
+				<input type="submit" ng-click="newTask()">
+		</form>
+		</div>
+	</div>
 </div>
+
+
+
+				<!-- <span class="glyphicon glyphiconc glyphicon-plus" ng-click='linkuser(project._id)'></span> -->
+				
+		
 
 

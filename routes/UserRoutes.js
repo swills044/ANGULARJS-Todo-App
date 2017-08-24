@@ -10,6 +10,7 @@ var project =  require('../models/Project').model;
 var Task = require('../models/Task').model;
 var path = require('path');
 var moment = require('moment');
+var Promise = require("bluebird");
 
 module.exports = function(app){
 	//Register
@@ -310,7 +311,29 @@ module.exports = function(app){
             if (err) {
                 res.status(400).send(err);
             } else {
-                res.status(200).send(task);
+
+                var newtasks = [];
+
+                var format = new Promise(
+                    function(resolve, reject){
+                        task.forEach(function(tasks){
+                            var newdate = moment(tasks.DueDate).format('DD-MM-YYYY');
+                            newtask = {
+                                _id: tasks._id,
+                                CreatedById: tasks.CreatedById,
+                                Name: tasks.Name,
+                                DueDate: newdate,
+                                Project: tasks.Project
+                            }
+                            newtasks.push(newtask);
+                        })
+                        resolve(newtasks);
+                    }
+                )
+
+                format.then(function(newtasks){
+                    res.status(200).send(newtasks);
+                })
             }
 
 
@@ -335,7 +358,28 @@ module.exports = function(app){
                         tasks.push(task);                                 
                     }
                 })
-                res.status(200).json(tasks);
+                var newtasks = [];
+
+                var format = new Promise(
+                    function(resolve, reject){
+                        tasks.forEach(function(task){
+                            var newdate = moment(task.DueDate).format('DD-MM-YYYY');
+                            newtask = {
+                                _id: task._id,
+                                CreatedById: task.CreatedById,
+                                Name: task.Name,
+                                DueDate: newdate,
+                                Project: task.Project
+                            }
+                            newtasks.push(newtask);
+                        })
+                        resolve(newtasks);
+                    }
+                )
+
+                format.then(function(newtasks){
+                    res.status(200).send(newtasks);
+                })
             }
         })
     })
@@ -351,23 +395,48 @@ module.exports = function(app){
             }
             else {
                 var tasks = [];
-                    task.forEach(function(task){
-                        var date = moment(task.DueDate).format('DD');
-                        var date = parseInt(date);
-                        var today = moment(Date.now()).format('DD');
-                        var today = parseInt(today);
-                        var end = today + 7;
-                        for(;today < end;  today++){
-                            var days = []
-                            days.push(today);
-                            var i = days.indexOf(date);
-                            if (i > -1) {
-                                tasks.push(task);
-                            }
+                task.forEach(function(task){
+                    var date = moment(task.DueDate).format('DD');
+                    var date = parseInt(date);
+                    var today = moment(Date.now()).format('DD');
+                    var today = parseInt(today);
+                    var end = today + 7;
+                    for(;today < end;  today++){
+                        var days = []
+                        days.push(today);
+                        var i = days.indexOf(date);
+                        if (i > -1) {
+                            tasks.push(task);
                         }
-                    })
+                    }
+                })
+
+                var newtasks = [];
+
+                var format = new Promise(
+                    function(resolve, reject){
+                        tasks.forEach(function(task){
+                            var newdate = moment(task.DueDate).format('DD-MM-YYYY');
+                            newtask = {
+                                _id: task._id,
+                                CreatedById: task.CreatedById,
+                                Name: task.Name,
+                                DueDate: newdate,
+                                Project: task.Project
+                            }
+                            newtasks.push(newtask);
+                        })
+                        resolve(newtasks);
+                    }
+                )
+
+                format.then(function(newtasks){
+                    res.status(200).send(newtasks);
+                })
+
+
                             
-                res.status(200).json(tasks);
+                
             }
         })
     })
@@ -400,29 +469,65 @@ module.exports = function(app){
                 res.status(500).send(err);
             } else {
                 users = [];
+                var user = new Promise(function(resolve, reject){
 
                     for (var i = 0; i < project.length; i++) {
-                    pquery = {
-                        _id: project[i].User
-                    }
-                    User.find(pquery, function(err, user){
-                        if (err) {
-                            res.status(500).send(err);
-                        }else {
-                            user.forEach(function(user){
-                                users.push(user.UserName);
-                                console.log(users)                         
-                            })
-
+                        pquery = {
+                            _id: project[i].User
                         }
-                    })
+                        User.find(pquery, function(err, user){
+                            if (err) {
+                                res.status(500).send(err);
+                            }else {
+                                user.forEach(function(user){
+                                    users.push(user.UserName);
+                                    resolve(users);                        
+                                })
+
+                            }
+                        })
                     } 
-                res.status(200).send(users);   
+
+
+                })
+
+                user.then(function(users){
+                    res.status(200).send(users);
+                })   
             }
 
 
         })
     })
+    
+        app.delete('/userproject/:id', passport.authenticate('bearer', {session: false}), function(req,res){
+    
+            var query = {
+                _id: req.params.id
+            }
+            project.findByIdAndRemove(query, function(err, project){
+
+                var query = {
+                    Project: req.params.id
+                }
+                UserProjects.find(query).remove(function(){
+
+                    if (err) {
+                        res.status(500).send(err);
+                    }
+                    else{
+                        res.status(200).send(project);
+                    }
+
+                })
+                    
+
+                if (err) {
+                    res.status(500).send(err); 
+                }
+
+            })
+        })
 
 };
 

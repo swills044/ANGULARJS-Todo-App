@@ -1,31 +1,67 @@
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div class="container">
+	<div class="heading">
+		<h3 class="section-title">{{heading}}</h3>
+	</div>
+	<div class="tasks">
+		<ul>
+			<div ng-repeat="t in tasks">
+				<i class="material-icons delete" ng-click="delete(t._id)">delete_sweep</i>
+				<li>
+					<span>{{t.Name}}</span>	
+					<div class="cal">
+						<i class="material-icons">date_range</i>
+						<span class="date">{{t.DueDate}}</span>
+					</div>
+				</li>
+			</div>
+		</ul>
+	</div>
+	<div class="add_task">
+	<i class="material-icons" ng-click="showform()">note_add</i><span class="task_add">Add Task</span>
+		<div class="form">
+			<form ng-show="form">
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<h1 style="margin-top: 0px;">{{heading}}</h1>
+				<input type="text" ng-model="name" placeholder="Task" class="task">
+
+				<input type="text" ng-model="project" list="userss" placeholder="Project">
+
+				<datalist id="userss" >
+				    <option ng-repeat="p in projects" value="{{p._id}}">{{p.Name}}</option>
+				</datalist>
+				<i class="material-icons open-datetimepicker">date_range</i>
+				<input id="datepicker" ng-model="duedate">
+
+				
+
+				<input type="submit" ng-click="newTask()">
+		</form>
+		</div>
+	</div>
+</div>
+
+
+<!-- <h1 style="margin-top: 0px;">{{heading}}</h1>
 <div>
 	<ul>
 		<li ng-repeat="task in tasks track by $index">
 			{{task.Name}}
 			{{task.DueDate}}
-			<span class="glyphicon glyphicon-trash" ng-click='delete(task._id)'></span>
+			<span class="glyphicon glyphicon-trash" ng-click="delete(task._id)"></span>
 		</li>
 	</ul>
 </div>
-<a href="" class="action action_add_item" ng-click='showForm'><span class="glyphicon glyphicon-plus"></span>Add Task</a>
+<a href="" class="action action_add_item" ng-click="showForm"><span class="glyphicon glyphicon-plus"></span>Add Task</a>
 <form>
 	
 	<input type="text" ng-model="Name" placeholder="task">
-	<input type="text" ng-model='Project' list="projects" placeholder="project">
+	<input type="text" ng-model="Project" list="projects" placeholder="project">
 		<datalist id="projects">
-		    <option ng-repeat='p in projects' value="{{p._id}}">{{p.Name}}</option>
+		    <option ng-repeat="p in projects" value="{{p._id}}">{{p.Name}}</option>
 		 </datalist>
 	<input type="date" ng-model="DueDate" placeholder="Due Date">
-	<input type="submit" ng-click='newTask()'>
+	<input type="submit" ng-click="newTask()">
 </form>
 
 
+ -->

@@ -1,7 +1,6 @@
 #sidebar-left {
     .container {
         h3.section-title {
-            
         }
         ul {
             list-style: none;
@@ -20,6 +19,52 @@
                     top: 0px;
                     color: @brand-primary;
                 }
+            }
+        }
+        .add_task {
+            width:  @side-bar-width;
+            min-height: 24px;
+            display: inline-flex;
+            align-items: center;
+            i {
+                color: @brand-primary;  
+                cursor: pointer;
+            }
+            .project-add {
+                color: @brand-primary;
+                font-size: 14px;
+            }
+            .form {
+                form {
+                    width: 50%;
+                    border: 1px solid @concrete;
+                    .task {
+                        width: 75%;
+                        border-bottom: 1px solid @concrete;
+                        height: 40px; 
+                    }
+                    input{
+                        border: none;
+                        padding: 0px;
+                        &:focus{
+                            outline: none;
+                        }
+                    }
+                    input[type="submit"]{
+                        display: block;
+                    }
+                    input[type="number"]{
+                        border-left: 1px solid @concrete;
+                    }
+
+                    input::-webkit-input-placeholder{
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+                    #datepicker {
+                        width: 0;
+                    }
+            }
             }
         }
     }

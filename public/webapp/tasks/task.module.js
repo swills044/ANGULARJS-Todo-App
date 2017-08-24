@@ -1,19 +1,19 @@
 (function(window, angular) {
-    var module = angular.module('todoApp');
+    var module = angular.module("todoApp");
 
     module.config(moduleConfig);
     module.run(moduleRun);
 
-    moduleConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
+    moduleConfig.$inject = ["$stateProvider", "$urlRouterProvider"];
 
     function moduleConfig($stateProvider, $urlRouterProvider) {
 
-        $stateProvider.state('root.tasks', {
-            url: '/inbox',
+        $stateProvider.state("root.tasks", {
+            url: "/inbox",
             views: {
-                'content-view@': {
-                    templateUrl: '/webapp/tasks/task.partial.html',
-                    controller: 'TaskController'
+                "content-view@": {
+                    templateUrl: "/webapp/tasks/task.partial.html",
+                    controller: "TaskController"
                 }
             },
             resolve: {
@@ -41,13 +41,13 @@
                 }
             }
         });
-        $stateProvider.state('root.agendatoday', {
+        $stateProvider.state("root.agendatoday", {
 
-            url: '/agenda?today',
+            url: "/agenda?today",
             views: {
-                'content-view@': {
-                    templateUrl: '/webapp/tasks/task.partial.html',
-                    controller: 'TaskController'
+                "content-view@": {
+                    templateUrl: "/webapp/tasks/task.partial.html",
+                    controller: "TaskController"
                 }
             },
             resolve: {
@@ -66,12 +66,12 @@
             }
 
         })
-        $stateProvider.state('root.agendaweek', {
-            url: '/agenda?week',
+        $stateProvider.state("root.agendaweek", {
+            url: "/agenda?week",
             views: {
-                'content-view@': {
-                    templateUrl: '/webapp/tasks/task.partial.html',
-                    controller: 'TaskController'
+                "content-view@": {
+                    templateUrl: "/webapp/tasks/task.partial.html",
+                    controller: "TaskController"
                 }
             },
             resolve: {

@@ -19,9 +19,20 @@
         <ul>
           <li ng-repeat="p in projects">
             <a ng-click="projectpage(p._id)"> {{p.Name}} </a>
-            <span class="glyphicon glyphicon-remove" ng-click="delete(p._id)"></span>
+            <i class="material-icons" ng-click="delete(p._id)">delete_sweep</i>
           </li>
         </ul>
+    </div>
+    <div class="add_task">
+    <i class="material-icons" ng-click="showform()">note_add</i><span class="project-add">Add Project</span>
+        <div class="form">
+            <form ng-show="form">
+
+                <input type="text" ng-model="name" placeholder="Project" class="task">
+
+                <input type="submit" ng-click='newProject()'>
+        </form>
+        </div>
     </div>
 </div>
 <!--
