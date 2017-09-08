@@ -3,12 +3,19 @@
 	var module = angular.module('todoApp');
 
 	module.controller('topbarcontroller', controller);
-	controller.$inject = ['$window', '$scope', '$http', '$state'];
+	controller.$inject = ['$window', '$scope', '$http', '$state', 'rProjects'];
 
-	function controller($window, $scope, $http, $state){
+	function controller($window, $scope, $http, $state, rProjects){
+		$scope.projects = rProjects;
+		$scope.project = {};
+
+		$scope.stateFind = function(item, model){
+			console.log(item._id);
+			$state.go('root.project', {id: item._id});
+		}
 
 		$scope.logout = function(){
-			var data = $.param({   
+			var data = $.param({
             });
 			var config = {
                 headers : {
@@ -32,7 +39,7 @@
 			$http.post(window.endpoint +"api/task", data, config)
 			.then(function(){
 				$state.reload();
-				
+
 			})
 		}
 		$scope.form = false;
@@ -57,7 +64,7 @@
 			});
 		})
 
-		
+
 
 
 	}

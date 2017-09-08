@@ -14,6 +14,7 @@
     "angular-momentjs": "^0.2.2",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
+    "bower": "^1.8.0",
     "cookie-parser": "^1.4.3",
     "crypto": "0.0.3",
     "deasync": "^0.1.10",

@@ -3,7 +3,10 @@
     <i class="material-icons">check_circle</i>
   </div>
   <div class="search">
-    <input type="text" class="searchbox" placeholder="Search">    
+    <ui-select ng-model="project.selected" theme="bootstrap" on-select="stateFind($item, $model)">
+      <ui-select-match>{{$select.selected.Name}}</ui-select-match>
+      <ui-select-choices repeat="p in projects | filter: $select.search">{{p.Name}}</ui-select-choices>
+    </ui-select>
   </div>
   <div class="actions">
 
@@ -15,7 +18,7 @@
 
           <div class="extra">
             <select ng-model="project" ng-options="p.Name for p in projects">
-            </select> 
+            </select>
             <i class="material-icons open-datetimepicker">date_range</i>
             <input id="datepicker" ng-model="duedate">
           </div>
