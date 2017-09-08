@@ -13,7 +13,7 @@
 
             service.responseError = function(response) {
                 if (response.status == 401) {
-                    window.location = "/login";
+                    window.location = "/login.html";
                 }
                 return $q.reject(response);
             };

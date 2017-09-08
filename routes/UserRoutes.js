@@ -92,8 +92,9 @@ module.exports = function(app){
             if (!user) {res.status(500).send('No user')};
             //If a User exists then validate password and create a new token
             if (user) {
+
                 if (user.ValidatePassword(req.body.Password, user.Password)) {
-                        
+
                                var accesstoken = new AccessToken({
                                         UserId: user._id,
                                         TokenString: crypto.randomBytes(32).toString('hex'),
@@ -106,7 +107,7 @@ module.exports = function(app){
                                     var UserId = user._id;
                                     AccessToken.findByIdAndRemove(UserId, function(err, user){
                                         if (err) {res.send(err);}
-                                        
+
                                             else {
                                                 try {
                                                     var _userLogin = new UserLogin();
@@ -127,25 +128,29 @@ module.exports = function(app){
                                                 }
                                             }
                                     })
-                                    
-                                }); 
-                            
-                        };
+
+                                });
+
+                        }else{
+													res.status(401).send('wrong');
+												};
+
+
 
 
             }
 
 
-        	
-            });                                          
-	}); 
+
+            });
+	});
     //Link User
     app.post('/api/project/linkuser', function(req, res){
         var query = {
             Project: req.body.Project,
         }
         //Search for project
-        UserProjects.findOne(query, function (err, project){ 
+        UserProjects.findOne(query, function (err, project){
 
                 if (err) {
                     res.status(500).send(err);
@@ -174,7 +179,7 @@ module.exports = function(app){
                                 data.Project = req.body.Project;
 
                                 data.save(function(err, data){
-                          
+
                                     if (err) {
 
                                         res.status(500).send(err);
@@ -184,7 +189,7 @@ module.exports = function(app){
                                         res.status(200).send(data);
 
                                     }
-                                    
+
 
                                 })
 
@@ -193,9 +198,9 @@ module.exports = function(app){
                     })
 
                 }
-            
 
-        }); 
+
+        });
     });
     //Unlink User
     app.post('/api/project/unlinkuser', function(req, res){
@@ -213,7 +218,7 @@ module.exports = function(app){
                     }
                     res.status(200).send(user);
 
-                })        
+                })
     });
     //Add project
     app.post('/api/projects', passport.authenticate('bearer', {session: false}), function(req, res, next){
@@ -227,7 +232,7 @@ module.exports = function(app){
             data.CreatedById = req.user._id;
 
             project.find(query, function(err, project){
-                
+
                 if (project.CreatedById == req.user._id) {
                     res.status(500).send('failed');
                     next();
@@ -238,7 +243,7 @@ module.exports = function(app){
                     res.status(500).send(err);
                 }
                 else {
-                    
+
                     var query = {
                         User: req.user._id,
                         Project: data._id
@@ -281,7 +286,7 @@ module.exports = function(app){
                     res.status(500).send(err);
                 }
             })
-            
+
     });
     //Logout
     app.post('/logout', passport.authenticate('bearer', {session: false}), function(req, res){
@@ -307,7 +312,7 @@ module.exports = function(app){
             CreatedById: req.user.id
         }
         Task.find(query, function(err, task){
-           
+
             if (err) {
                 res.status(400).send(err);
             } else {
@@ -353,9 +358,9 @@ module.exports = function(app){
                 var tasks = [];
                 task.forEach(function(task){
                     var date = moment(task.DueDate).format('YYYY-MM-DD');
-                    var now = moment(Date.now()).format('YYYY-MM-DD');          
+                    var now = moment(Date.now()).format('YYYY-MM-DD');
                     if ( date == now) {
-                        tasks.push(task);                                 
+                        tasks.push(task);
                     }
                 })
                 var newtasks = [];
@@ -435,8 +440,8 @@ module.exports = function(app){
                 })
 
 
-                            
-                
+
+
             }
         })
     })
@@ -502,27 +507,27 @@ module.exports = function(app){
                             }else {
                                 user.forEach(function(user){
                                     users.push(user);
-                                    resolve(users);                        
+                                    resolve(users);
                                 })
 
                             }
                         })
-                    } 
+                    }
 
 
                 })
 
                 user.then(function(users){
                     res.status(200).send(users);
-                })   
+                })
             }
 
 
         })
     })
-    
+
         app.delete('/userproject/:id', passport.authenticate('bearer', {session: false}), function(req,res){
-    
+
             var query = {
                 _id: req.params.id
             }
@@ -541,10 +546,10 @@ module.exports = function(app){
                     }
 
                 })
-                    
+
 
                 if (err) {
-                    res.status(500).send(err); 
+                    res.status(500).send(err);
                 }
 
             })
@@ -560,6 +565,3 @@ module.exports = function(app){
     })
 
 };
-
-
- 
