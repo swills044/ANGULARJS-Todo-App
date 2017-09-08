@@ -10090,6 +10090,7 @@ h3.section-title {
   line-height: 24px;
   margin-bottom: 10px;
   -webkit-text-stroke: 0px;
+  border-bottom: 1px solid #dddddd;
 }
 h3.section-title i {
   float: left;
@@ -10678,48 +10679,52 @@ h6,
   top: 0px;
   color: #e74c3c;
 }
-#sidebar-left .container .add_task {
+#sidebar-left .container .add_project {
   width: 320px;
+}
+#sidebar-left .container .add_project i {
+  color: #e74c3c;
+  cursor: pointer;
+}
+#sidebar-left .container .add_project .project-add {
+  color: #e74c3c;
+  font-size: 14px;
   min-height: 24px;
   display: inline-flex;
   align-items: center;
 }
-#sidebar-left .container .add_task i {
-  color: #e74c3c;
-  cursor: pointer;
-}
-#sidebar-left .container .add_task .project-add {
-  color: #e74c3c;
-  font-size: 14px;
-}
-#sidebar-left .container .add_task .form form {
+#sidebar-left .container .add_project .form form {
   width: 50%;
+}
+#sidebar-left .container .add_project .form form .project {
+  display: block;
+  width: 80%;
   border: 1px solid #dddddd;
+  padding: 6px;
+  width: 100%;
 }
-#sidebar-left .container .add_task .form form .task {
-  width: 75%;
-  border-bottom: 1px solid #dddddd;
-  height: 40px;
-}
-#sidebar-left .container .add_task .form form input {
-  border: none;
-  padding: 0px;
-}
-#sidebar-left .container .add_task .form form input:focus {
+#sidebar-left .container .add_project .form form .project:focus {
   outline: none;
 }
-#sidebar-left .container .add_task .form form input[type="submit"] {
+#sidebar-left .container .add_project .form form button {
+  font-size: 12px;
   display: block;
+  background-color: #e74c3c;
+  color: #fff;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 4px;
+  border: none;
+  -webkit-border-radius: 2px !important;
+  -moz-border-radius: 2px !important;
+  border-radius: 2px !important;
 }
-#sidebar-left .container .add_task .form form input[type="number"] {
-  border-left: 1px solid #dddddd;
-}
-#sidebar-left .container .add_task .form form input::-webkit-input-placeholder {
+#sidebar-left .container .add_project .form form input::-webkit-input-placeholder {
   font-size: 14px;
   font-weight: 400;
-}
-#sidebar-left .container .add_task .form form #datepicker {
-  width: 0;
+  text-align: center;
 }
 .btn-default:hover {
   color: white;
@@ -10876,6 +10881,45 @@ body {
   color: #fff;
   line-height: 64px;
 }
+#topbar .actions > div.action form {
+  z-index: 99;
+  background-color: red;
+}
+#topbar .actions > div.action form .task {
+  border: 1px solid #dddddd;
+}
+#topbar .actions > div.action form .extra select:focus {
+  outline: none;
+}
+#topbar .actions > div.action form .extra select #datepicker {
+  width: 0;
+}
+#topbar .actions > div.action form input {
+  border: none;
+  padding: 0px;
+}
+#topbar .actions > div.action form input:focus {
+  outline: none;
+}
+#topbar .actions > div.action form button {
+  font-size: 12px;
+  display: block;
+  background-color: #e74c3c;
+  color: #fff;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 4px;
+  border: none;
+  -webkit-border-radius: 2px !important;
+  -moz-border-radius: 2px !important;
+  border-radius: 2px !important;
+}
+#topbar .actions > div.action form input::-webkit-input-placeholder {
+  font-size: 14px;
+  font-weight: 400;
+}
 #content .container .tasks ul {
   list-style: none;
   cursor: pointer;
@@ -10900,6 +10944,9 @@ body {
 }
 #content .container .tasks ul div li .cal {
   float: right;
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
 }
 #content .container .tasks ul div li .cal .date {
   font-size: 12px;
@@ -10908,11 +10955,6 @@ body {
 #content .container .tasks ul div li .cal i {
   color: #e74c3c;
 }
-#content .container .add_task {
-  min-height: 24px;
-  display: inline-flex;
-  align-items: center;
-}
 #content .container .add_task i {
   color: #e74c3c;
   cursor: pointer;
@@ -10920,15 +10962,23 @@ body {
 #content .container .add_task .task_add {
   color: #e74c3c;
   font-size: 14px;
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
 }
 #content .container .add_task .form form {
   width: 50%;
-  border: 1px solid #dddddd;
 }
 #content .container .add_task .form form .task {
   width: 75%;
-  border-bottom: 1px solid #dddddd;
+  border: 1px solid #dddddd;
   height: 40px;
+}
+#content .container .add_task .form form .extra select:focus {
+  outline: none;
+}
+#content .container .add_task .form form .extra select #datepicker {
+  width: 0;
 }
 #content .container .add_task .form form input {
   border: none;
@@ -10937,18 +10987,27 @@ body {
 #content .container .add_task .form form input:focus {
   outline: none;
 }
-#content .container .add_task .form form input[type="submit"] {
+#content .container .add_task .form form button {
+  font-size: 12px;
   display: block;
-}
-#content .container .add_task .form form input[type="number"] {
-  border-left: 1px solid #dddddd;
+  background-color: #e74c3c;
+  color: #fff;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 4px;
+  border: none;
+  -webkit-border-radius: 2px !important;
+  -moz-border-radius: 2px !important;
+  border-radius: 2px !important;
 }
 #content .container .add_task .form form input::-webkit-input-placeholder {
   font-size: 14px;
   font-weight: 400;
 }
-#content .container .add_task .form form #datepicker {
-  width: 0;
+#project .container .tasks h4 {
+  font-size: 16px;
 }
 #project .container .tasks ul {
   list-style: none;
@@ -10966,7 +11025,7 @@ body {
 #project .container .tasks ul div li {
   padding: 8px;
   overflow: auto;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px dotted #e74c3c;
 }
 #project .container .tasks ul div li span {
   width: 75%;
@@ -10981,6 +11040,9 @@ body {
 }
 #project .container .tasks ul div li .cal i {
   color: #e74c3c;
+}
+#project .container .projectusers h4 {
+  font-size: 16px;
 }
 #project .container .projectusers ul {
   list-style: none;
@@ -10998,7 +11060,7 @@ body {
 #project .container .projectusers ul div li {
   padding: 8px;
   overflow: auto;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px dotted #e74c3c;
 }
 #project .container .projectusers ul div li span {
   width: 75%;
@@ -11007,26 +11069,54 @@ body {
 #project .container .projectusers ul div li span i {
   color: #e74c3c;
 }
-#project .container .add_task i {
+.add_task i {
   color: #e74c3c;
   cursor: pointer;
 }
-#project .container .add_task .form form {
-  width: 50%;
-  border: 1px solid #dddddd;
+.add_task .task_add {
+  color: #e74c3c;
+  font-size: 14px;
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
 }
-#project .container .add_task .form form .task {
+.add_task .form form {
+  width: 50%;
+}
+.add_task .form form .task {
   width: 75%;
-  border-bottom: 1px solid #dddddd;
+  border: 1px solid #dddddd;
   height: 40px;
 }
-#project .container .add_task .form form input {
+.add_task .form form .extra select:focus {
+  outline: none;
+}
+.add_task .form form .extra select #datepicker {
+  width: 0;
+}
+.add_task .form form input {
   border: none;
   padding: 0px;
 }
-#project .container .add_task .form form input:focus {
+.add_task .form form input:focus {
   outline: none;
 }
-#project .container .add_task .form form input[type="submit"] {
+.add_task .form form button {
+  font-size: 12px;
   display: block;
+  background-color: #e74c3c;
+  color: #fff;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 4px;
+  border: none;
+  -webkit-border-radius: 2px !important;
+  -moz-border-radius: 2px !important;
+  border-radius: 2px !important;
+}
+.add_task .form form input::-webkit-input-placeholder {
+  font-size: 14px;
+  font-weight: 400;
 }

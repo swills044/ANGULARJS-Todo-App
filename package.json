@@ -21,9 +21,13 @@
     "moment": "^2.18.1",
     "mongoose": "^4.11.5",
     "mongoose-bcrypt": "^1.5.0",
+    "nodemon": "^1.12.0",
     "passport": "^0.3.2",
     "passport-http-bearer": "^1.0.1",
     "passport-local": "^1.0.0",
     "promise": "^8.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.0"
   }
 }

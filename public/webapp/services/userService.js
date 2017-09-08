@@ -13,7 +13,7 @@
 				return $http({
 	
 					method:"GET",
-					url: window.endpoint + 'api/user',
+					url: window.endpoint + 'users',
 					headers: {'Authorization': 'Bearer ' + localStorage.getItem("tokenString")}
 				});
 	

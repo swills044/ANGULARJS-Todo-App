@@ -1,7 +1,6 @@
+// main: ./style.less
 #sidebar-left {
     .container {
-        h3.section-title {
-        }
         ul {
             list-style: none;
             padding-left: 0;
@@ -21,48 +20,52 @@
                 }
             }
         }
-        .add_task {
+        .add_project {
             width:  @side-bar-width;
-            min-height: 24px;
-            display: inline-flex;
-            align-items: center;
             i {
-                color: @brand-primary;  
+                color: @brand-primary;
                 cursor: pointer;
             }
             .project-add {
                 color: @brand-primary;
                 font-size: 14px;
+                min-height: 24px;
+                display: inline-flex;
+                align-items: center;
+
             }
             .form {
                 form {
                     width: 50%;
-                    border: 1px solid @concrete;
-                    .task {
-                        width: 75%;
-                        border-bottom: 1px solid @concrete;
-                        height: 40px; 
-                    }
-                    input{
-                        border: none;
-                        padding: 0px;
-                        &:focus{
+                    .project {
+                        display: block;
+                        width: 80%;
+                        border: 1px solid @concrete;
+                        padding: 6px;
+                        width: 100%;
+                         &:focus{
                             outline: none;
                         }
                     }
-                    input[type="submit"]{
+                    button{
+                        font-size: 12px;
                         display: block;
-                    }
-                    input[type="number"]{
-                        border-left: 1px solid @concrete;
+                        background-color: @brand-primary;
+                        color: #fff;
+                        padding-top: 4px;
+                        padding-bottom: 4px;
+                        padding-left: 8px;
+                        padding-right: 8px;
+                        margin-top: 4px;
+                        border: none;
+                        .border-radius(2px);
+
                     }
 
                     input::-webkit-input-placeholder{
                         font-size: 14px;
                         font-weight: 400;
-                    }
-                    #datepicker {
-                        width: 0;
+                        text-align: center;
                     }
             }
             }

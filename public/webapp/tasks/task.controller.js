@@ -32,7 +32,7 @@
 		})
 
 	    $scope.newTask = function(){
-			var data = {Name: $scope.name, Project: $scope.project ,DueDate: $scope.duedate};
+			var data = {Name: $scope.name, Project: $scope.project._id ,DueDate: $scope.duedate};
 			console.log(data);
 			var config = {
 	            headers : {

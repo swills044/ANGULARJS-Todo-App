@@ -1,13 +1,15 @@
 
+
 <div id='project'>
 	<div class="container">
 		<h3 class="heading section-title">{{project.Name}}</h3>
 		<div class="tasks">
+			<h4>Tasks</h4>
 			<ul>
 				<div ng-repeat="t in tasks">
 					<i class="material-icons delete" ng-click="delete(t._id)">delete_sweep</i>
 					<li>
-						<span>{{t.Name}}</span>	
+						<span>{{t.Name}}</span>
 						<div class="cal">
 							<i class="material-icons">date_range</i>
 							<span class="date">{{t.DueDate}}</span>
@@ -15,13 +17,22 @@
 					</li>
 				</div>
 			</ul>
+			<button
+		    class="btn btn-primary"
+		    modal-trigger
+		    size="'sm'"
+		    title="'Hello World!'"
+		    message="'This is a test'"
+		    >Click Me</button>
+		</div>
 		</div>
 		<div class="projectusers">
+			<h4>Users</h4>
 			<ul>
 				<div ng-repeat="u in projectusers">
-					<i class="material-icons delete">verified_user</i>
+					<i class="material-icons delete" ng-click='unlinkuser(project._id, u._id)'>highlight_off</i>
 					<li>
-						<span>{{u}}</span>
+						<span>{{u.UserName}}</span>
 					</li>
 				</div>
 			</ul>
@@ -29,22 +40,11 @@
 		<div class="linkuser">
 			<form>
 
-				<input type="text" ng-model="user" list="projects" placeholder="User">
+				<select ng-model="user" ng-options="u.Name for u in users">
+				</select>
 
-				<datalist id="projects" >
-				    <option ng-repeat="p in projects" value="{{p._id}}">{{p.Name}}</option>
-				</datalist>
-
-				<input type="submit" ng-click="newTask()">
+				<input type="submit" ng-click="linkuser(project._id)">
 		</form>
 		</div>
 	</div>
 </div>
-
-
-
-				<!-- <span class="glyphicon glyphiconc glyphicon-plus" ng-click='linkuser(project._id)'></span> -->
-				
-		
-
-

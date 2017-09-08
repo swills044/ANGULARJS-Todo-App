@@ -18,24 +18,27 @@
 		</ul>
 	</div>
 	<div class="add_task">
-	<i class="material-icons" ng-click="showform()">note_add</i><span class="task_add">Add Task</span>
+		<div class="task_add">
+			<i class="material-icons" ng-click="showform()">note_add</i>
+		<span>Add Task</span>
+		</div>
 		<div class="form">
 			<form ng-show="form">
 
 				<input type="text" ng-model="name" placeholder="Task" class="task">
 
-				<input type="text" ng-model="project" list="userss" placeholder="Project">
+				<div class="extra">
+					<select ng-model="project" ng-options="p.Name for p in projects">
+					</select>	
 
-				<datalist id="userss" >
-				    <option ng-repeat="p in projects" value="{{p._id}}">{{p.Name}}</option>
-				</datalist>
-				<i class="material-icons open-datetimepicker">date_range</i>
-				<input id="datepicker" ng-model="duedate">
+					<i class="material-icons open-datetimepicker">date_range</i>
+					<input id="datepicker" ng-model="duedate">
+				</div>
 
 				
 
-				<input type="submit" ng-click="newTask()">
-		</form>
+				<button type="submit" ng-click="newTask()">Add Task</button>
+			</form>
 		</div>
 	</div>
 </div>

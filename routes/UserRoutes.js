@@ -447,12 +447,33 @@ module.exports = function(app){
         Project: req.params.id
     }
 
-    Task.find(query, function(err, task){
+    Task.find(query, function(err, tasks){
         if (err) {
             res.status(500).send(err);
         }
         else{
-            res.status(200).send(task);
+            var newtasks = [];
+
+                var format = new Promise(
+                    function(resolve, reject){
+                        tasks.forEach(function(task){
+                            var newdate = moment(task.DueDate).format('DD-MM-YYYY');
+                            newtask = {
+                                _id: task._id,
+                                CreatedById: task.CreatedById,
+                                Name: task.Name,
+                                DueDate: newdate,
+                                Project: task.Project
+                            }
+                            newtasks.push(newtask);
+                        })
+                        resolve(newtasks);
+                    }
+                )
+
+                format.then(function(newtasks){
+                    res.status(200).send(newtasks);
+                })
         }
     })
 
@@ -480,7 +501,7 @@ module.exports = function(app){
                                 res.status(500).send(err);
                             }else {
                                 user.forEach(function(user){
-                                    users.push(user.UserName);
+                                    users.push(user);
                                     resolve(users);                        
                                 })
 
@@ -528,6 +549,15 @@ module.exports = function(app){
 
             })
         })
+
+    app.get('/users', passport.authenticate('bearer', {session: false}), function(req,res){
+        User.find(function(err, users){
+            if (err) {
+                res.status(500).send(err)
+            }
+            res.status(200).send(users)
+        })
+    })
 
 };
 

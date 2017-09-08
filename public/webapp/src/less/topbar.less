@@ -1,3 +1,4 @@
+// main: ./style.less
 #topbar {
 	.container {
 		> div {
@@ -40,7 +41,7 @@
 	.actions {
 		float: right !important;
 		text-align: right;
-		width: calc(~"100% - 790px"); 
+		width: calc(~"100% - 790px");
 		> div.action {
 			display: inline-block;
 			margin-left: 16px;
@@ -49,6 +50,51 @@
 					color: #fff;
 					line-height: @top-bar-height;
 				}
+			}
+			form {
+				z-index: 99;
+				background-color: red;
+				.task {
+					border: 1px solid @concrete;
+				}
+				.extra{
+					select {
+                    	&:focus{
+                    		outline:none;
+                    	}
+                    	#datepicker {
+							width: 0;
+						}
+                	}
+
+				}
+				input{
+					border: none;
+					padding: 0px;
+					&:focus{
+						outline: none;
+					}
+				}
+				button{
+                    font-size: 12px;
+                    display: block;
+                    background-color: @brand-primary;
+                    color: #fff;
+                    padding-top: 4px;
+                    padding-bottom: 4px;
+                    padding-left: 8px;
+                    padding-right: 8px;
+                    margin-top: 4px;
+                    border: none;
+                    .border-radius(2px);
+
+                }
+
+				input::-webkit-input-placeholder{
+					font-size: 14px;
+                	font-weight: 400;
+				}
+
 			}
 		}
 	}
