@@ -10,7 +10,6 @@
 		$scope.project = {};
 
 		$scope.stateFind = function(item, model){
-			console.log(item._id);
 			$state.go('root.project', {id: item._id});
 		}
 
