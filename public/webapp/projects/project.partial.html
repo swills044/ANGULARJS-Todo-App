@@ -29,10 +29,10 @@
 		<div class="projectusers">
 			<h4>Users</h4>
 			<ul>
-				<div ng-repeat="u in projectusers">
+				<div ng-repeat="u in projectusers ">
 					<i class="material-icons delete" ng-click='unlinkuser(project._id, u._id)'>highlight_off</i>
 					<li>
-						<span>{{u.UserName}}</span>
+						<span>{{u._id}}</span>
 					</li>
 				</div>
 			</ul>
@@ -40,8 +40,10 @@
 		<div class="linkuser">
 			<form>
 
-				<select ng-model="user" ng-options="u.Name for u in users">
-				</select>
+				<ui-select ng-model="user.selected" theme="bootstrap">
+		      <ui-select-match>{{$select.selected.Name}}</ui-select-match>
+		      <ui-select-choices repeat="u in users | filter: $select.search " >{{u.Name}}</ui-select-choices>
+		    </ui-select>
 
 				<input type="submit" ng-click="linkuser(project._id)">
 		</form>

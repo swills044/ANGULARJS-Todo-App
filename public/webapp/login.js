@@ -1,5 +1,5 @@
 var tokenString;
-
+var userId;
 function login(event) {
     event.preventDefault();
     var username = $('#username').val();
@@ -15,8 +15,10 @@ function login(event) {
         }, function(token) {
             setTimeout(function() {
 
-                tokenString= token.TokenString;
+                tokenString = token.TokenString;
+                userId = token.UserId;
                 localStorage.setItem('tokenString', tokenString);
+                localStorage.setItem('UserId', userId);
                 location.href = 'webapp/index.html';
 
             }, 100);
@@ -36,7 +38,7 @@ function login(event) {
     }
 }
 
-function signup(event){ 
+function signup(event){
 
     $('.login').addClass('hide');
     $('.register').removeClass('register')

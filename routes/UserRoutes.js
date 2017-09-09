@@ -225,14 +225,14 @@ module.exports = function(app){
 
             var data = new project(req.body);
             var query = {
-                Name: req.body.Name
+                Name: req.body.Name,
+								CreatedById: req.user._id
             }
 
             //Add a project and a userproject
             data.CreatedById = req.user._id;
 
             project.find(query, function(err, project){
-
                 if (project.CreatedById == req.user._id) {
                     res.status(500).send('failed');
                     next();

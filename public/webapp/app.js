@@ -41,6 +41,15 @@
                 }
             },
             resolve: {
+                rTasks: function(taskService) {
+                    return taskService.usertasks()
+                        .then(function mySuccess(response) {
+                            return response.data;
+                        }, function myError(response) {
+                            return response.statusText;
+
+                });
+                },
                 rProjects: function(projectService) {
                     return projectService.get()
                         .then(function mySuccess(response) {

@@ -2,15 +2,26 @@
     var module = angular.module('todoApp');
 
     module.controller('projectController', projectController);
+    module.filter("filterArrayByBlacklist", filter);
 
+    function filter($stateParams) {
+      var localid = localStorage.getItem('UserId')
+      var blackList = localid;
+      return function(array) {
+          return array.filter(function(item) {
+              return blackList.indexOf(item.id) === -1; // item id not found in blacklist
+          });
+      };
+    }
     projectController.$inject = ['$scope','$http', '$window', 'project', 'tasks',  'projectusers', 'users', '$state'];
 
     function projectController($scope, $http, $window, project, tasks, projectusers, users, $state) {
-        $scope.project = project;   
+        $scope.localid = localStorage.getItem('UserId')
+        $scope.project = project;
         $scope.tasks = tasks;
         $scope.projectusers = projectusers;
         $scope.users = users;
-        
+        $scope.user = {};
         $scope.form = false;
         $scope.showform = function(){
         	if ($scope.form == true) {
@@ -44,7 +55,7 @@
 			$http.post(window.endpoint +"api/task", data, config)
 			.then(function(){
 				$state.reload();
-				
+
 			})
 		}
 
@@ -59,7 +70,7 @@
 			.then(function(){
 				$state.reload();
 			})
-		}  
+		}
 		$scope.linkuser = function(id){
 			var data = {Project: id, User: $scope.user._id};
 			var config = {
@@ -70,7 +81,7 @@
 			$http.post(window.endpoint +'api/project/linkuser', data, config)
 			.then(function(){
 				$state.reload();
-				
+
 			})
 
 		}
@@ -85,9 +96,9 @@
 			$http.post(window.endpoint +'api/project/unlinkuser', data, config)
 			.then(function(){
 				$state.reload();
-				
+
 			})
-		}		                                          
+		}
     }
 
 

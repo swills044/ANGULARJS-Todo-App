@@ -6,6 +6,7 @@
     <ui-select ng-model="project.selected" theme="bootstrap" on-select="stateFind($item, $model)">
       <ui-select-match>{{$select.selected.Name}}</ui-select-match>
       <ui-select-choices repeat="p in projects | filter: $select.search">{{p.Name}}</ui-select-choices>
+      <ui-select-choices repeat='t in tasks | filter: $select.search'>{{t.Name}}</ui-select-choices>
     </ui-select>
   </div>
   <div class="actions">

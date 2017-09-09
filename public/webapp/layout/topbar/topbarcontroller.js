@@ -3,11 +3,14 @@
 	var module = angular.module('todoApp');
 
 	module.controller('topbarcontroller', controller);
-	controller.$inject = ['$window', '$scope', '$http', '$state', 'rProjects'];
+	controller.$inject = ['$window', '$scope', '$http', '$state', 'rProjects', 'rTasks'];
 
-	function controller($window, $scope, $http, $state, rProjects){
+	function controller($window, $scope, $http, $state, rProjects, rTasks){
 		$scope.projects = rProjects;
 		$scope.project = {};
+
+		$scope.tasks = rTasks;
+		$scope.task = {};
 
 		$scope.stateFind = function(item, model){
 			$state.go('root.project', {id: item._id});
