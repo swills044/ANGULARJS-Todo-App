@@ -328,7 +328,8 @@ module.exports = function(app){
                                 CreatedById: tasks.CreatedById,
                                 Name: tasks.Name,
                                 DueDate: newdate,
-                                Project: tasks.Project
+                                Project: tasks.Project,
+																ProjectName: tasks.ProjectName
                             }
                             newtasks.push(newtask);
                         })
@@ -374,7 +375,8 @@ module.exports = function(app){
                                 CreatedById: task.CreatedById,
                                 Name: task.Name,
                                 DueDate: newdate,
-                                Project: task.Project
+                                Project: task.Project,
+																ProjectName: task.ProjectName
                             }
                             newtasks.push(newtask);
                         })
@@ -427,7 +429,9 @@ module.exports = function(app){
                                 CreatedById: task.CreatedById,
                                 Name: task.Name,
                                 DueDate: newdate,
-                                Project: task.Project
+                                Project: task.Project,
+																ProjectName: task.ProjectName
+
                             }
                             newtasks.push(newtask);
                         })

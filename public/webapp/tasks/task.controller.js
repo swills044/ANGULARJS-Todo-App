@@ -7,8 +7,8 @@
 
     function taskController($scope, rTasks, rHeading, $http, $window, rProjects, $state) {
         $scope.heading = rHeading;
-        $scope.tasks = rTasks;   
-        $scope.projects = rProjects 
+        $scope.tasks = rTasks;
+        $scope.projects = rProjects;
         $scope.form = false;
         $scope.showform = function(){
         	if ($scope.form == true) {
@@ -32,9 +32,9 @@
 		})
 
 	    $scope.newTask = function(){
-			var data = {Name: $scope.name, Project: $scope.project._id ,DueDate: $scope.duedate};
-			console.log(data);
-			var config = {
+			var data = {Name: $scope.name, Project: $scope.project._id , ProjectName: $scope.project.Name, DueDate: $scope.duedate};
+      console.log(data)
+      var config = {
 	            headers : {
 	                "Authorization": "Bearer " + localStorage.getItem("tokenString")
 	            }
@@ -42,7 +42,7 @@
 			$http.post(window.endpoint +"api/task", data, config)
 			.then(function(){
 				$state.reload();
-				
+
 			})
 		}
 
@@ -58,9 +58,9 @@
 			.then(function(){
 				$state.reload();
 			})
-		}  
+		}
 
-		                                       
-        
+
+
     }
 }(angular));

@@ -59,6 +59,15 @@
 
                         });
 
+                },
+                user: function(userService) {
+                  return userService.loggedIn()
+                    .then(function mySuccess(res){
+                      return res.data;
+
+                    }, function myError(res){
+                      return res.statusText;
+                    })
                 }
             }
 

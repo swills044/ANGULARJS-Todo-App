@@ -3,12 +3,15 @@ var Schema = mongoose.Schema;
 var name = 'task';
 var taskSchema = new mongoose.Schema({
 	Name: {
-		type: String, 
+		type: String,
 		required: true
 	},
 	Project: {
-		type:Schema.Types.ObjectId, 
+		type:Schema.Types.ObjectId,
 		default: null
+	},
+	ProjectName: {
+		type: String
 	},
 	CreatedById: {
 		type: Schema.Types.ObjectId, required: true
