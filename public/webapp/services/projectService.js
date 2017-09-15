@@ -12,7 +12,7 @@
 		        method : "GET",
 		        url : window.endpoint + 'api/project',
 		        headers: {'Authorization': 'Bearer ' + localStorage.getItem("tokenString")}
-		    });	    
+		    });
 
 		};
 	//GetById
@@ -36,6 +36,16 @@
 			return $http({
 				method: 'GET',
 				url: window.endpoint + 'userprojects/' + id.id,
+				headers: {'Authorization': 'Bearer ' + localStorage.getItem("tokenString")}
+
+			})
+		}
+	//Edit
+		service.editproject = function(id, body){
+			return $http({
+				method: 'GET',
+				url: window.endpoint + 'project/' + id.id,
+				data: {'Status': body},
 				headers: {'Authorization': 'Bearer ' + localStorage.getItem("tokenString")}
 
 			})
