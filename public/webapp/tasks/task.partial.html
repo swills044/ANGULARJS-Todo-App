@@ -23,26 +23,8 @@
 	</div>
 	<div class="add_task">
 		<div class="task_add">
-			<i class="material-icons" ng-click="showform()">note_add</i>
+			<i class="material-icons" ng-click="openAddTaskModal()">note_add</i>
 		<span>Add Task</span>
-		</div>
-		<div class="form">
-			<form ng-show="form">
-
-				<input type="text" ng-model="name" placeholder="Task" class="task">
-
-				<div class="extra">
-					<select ng-model="project" ng-options="p.Name for p in projects">
-					</select>
-
-					<i class="material-icons open-datetimepicker">date_range</i>
-					<input id="datepicker" ng-model="duedate">
-				</div>
-
-
-
-				<button type="submit" ng-click="newTask()">Add Task</button>
-			</form>
 		</div>
 	</div>
 </div>

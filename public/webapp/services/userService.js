@@ -18,6 +18,14 @@
 				});
 
 			}
+		//Users Filtered
+			service.usersFiltered = function(id){
+				return $http({
+					method:"GET",
+					url: window.endpoint + 'usersfiltered/' + id.id,
+					headers: {'Authorization': 'Bearer ' + localStorage.getItem("tokenString")}
+				})
+			}
 		//User Logged in
 			service.loggedIn = function(){
 				return $http({

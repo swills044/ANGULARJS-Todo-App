@@ -5,7 +5,6 @@
         'ngRoute',
         'ngSanitize',
         'ui.bootstrap',
-        'modal',
         'ui.select'
     ]);
     module.service('authInterceptor', function($q) {
@@ -105,8 +104,8 @@
                             return res.statusText;
                         })
                 },
-                users: function(userService) {
-                    return userService.users()
+                usersFiltered: function(userService, $stateParams) {
+                    return userService.usersFiltered($stateParams)
                         .then(function mySuccess(res) {
                             return res.data;
                         }, function myError(res) {

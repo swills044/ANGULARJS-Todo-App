@@ -510,6 +510,7 @@ module.exports = function(app){
                                 res.status(500).send(err);
                             }else {
                                 user.forEach(function(user){
+
                                     users.push(user);
                                     resolve(users);
                                 })
@@ -567,5 +568,66 @@ module.exports = function(app){
             res.status(200).send(users)
         })
     })
+		// 
+		// app.get('/usersfiltered/:id', passport.authenticate('bearer', {session: false}), function(req,res){
+		// 		User.find(function(err, users){
+		// 				if (err) {
+		// 						res.status(500).send(err)
+		// 				}
+		// 				var Users = [];
+		// 				var user = new Promise(function(resolve, reject) {
+		// 					users.forEach(function(u){
+		// 							if (u) {
+		// 								Users.push(u);
+		// 								resolve(Users);
+		// 							} else{
+		// 								reject('Failed');
+		// 							}
+		// 						})
+		// 				})
+		// 				user.then(function(Users){
+		// 					var Projects = [];
+		// 					var projectusers = new Promise(function(resolve, reject) {
+		// 						var query = {Project: req.params._id};
+		// 						UserProjects.find(query, function(err, projects){
+		// 							if (err) {
+		// 								console.log(err);
+		// 							}
+		// 							projects.forEach(function(p){
+		// 								if (p) {
+		// 									Projects.push(p);
+		// 									resolve(Projects)
+		// 								}else{
+		// 									reject('Failed')
+		// 								}
+		// 							})
+		// 						})
+		//
+		// 					});
+		// 					projectusers.then(function(Projects, Users){
+		// 						var userf = new Promise(function(resolve, reject) {
+		// 							Users.forEach(function(u){
+		// 								if (u === Projects.indexOf(u)) {
+		// 									console.log(u);
+		// 									reject(u);
+		// 								}else{
+		// 									Users.push(u);
+		// 									resolve(Users);
+		// 								}
+		// 							})
+		// 						});
+		// 						userf.then(function(Users){
+		// 							res.status(200).send(Users);
+		// 					})
+		//
+		// 				})
+		//
+		// 				})
+		//
+		//
+		// 			});
+		//
+		//
+		// })
 
 };

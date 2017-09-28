@@ -25,23 +25,15 @@
     </div>
     <div class="add_project">
         <div class="project-add">
-            <i class="material-icons" ng-click="showform()">note_add</i>
+            <i class="material-icons" ng-click="openAddProjectModal()">note_add</i>
             <span >Add Project</span>
-        </div>
-        <div class="form">
-            <form ng-show="form">
-
-                <input type="text" ng-model="name" placeholder="Project" class="project">
-
-                <button type="submit" ng-click='newProject()'>Add Project</button>
-        </form>
         </div>
     </div>
 </div>
 <!--
 <a href="" class="action action_add_item" ng-click='showForm'><span class="glyphicon glyphiconc glyphicon-plus"></span>Add project</a>
 <form>
-  
+
   <input type="text" ng-model="Name" placeholder="Project">
   <input type="submit" ng-click='newProject()'>
 </form>

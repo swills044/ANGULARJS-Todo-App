@@ -2,12 +2,7 @@
 
 <div id='project'>
 	<div class="container">
-		<h3 class="heading section-title">{{project.Name}} - {{project.Status}}<i class="material-icons" modal-trigger
-		size="'sm'"
-		title="'Hello World!'"
-		message="'This is a test'" style='float: none!important;'>mode_edit</i> <form class="" action="index.html" method="post">
-
-		</form> - Created By {{}}</h3>
+		<h3 class="heading section-title">{{project.Name}} - {{project.Status}}<i class="material-icons" style='float: none!important;' ng-click='openStatusModal()'>mode_edit</i>  </h3>
 		<div class="tasks">
 			<h4>Tasks</h4>
 			<ul>
@@ -22,36 +17,21 @@
 					</li>
 				</div>
 			</ul>
-			<button
-		    class="btn btn-primary"
-		    modal-trigger
-		    size="'sm'"
-		    title="'Hello World!'"
-		    message="'This is a test'"
-		    >Click Me</button>
+			<i class="material-icons" ng-click='openTaskModal()'>note_add</i>
 		</div>
 		</div>
+		<datepicker ng-model="date"></datepicker>
 		<div class="projectusers">
 			<h4>Users</h4>
 			<ul>
 				<div ng-repeat="u in projectusers ">
 					<i class="material-icons delete" ng-click='unlinkuser(project._id, u._id)'>highlight_off</i>
 					<li>
-						<span>{{u._id}}</span>
+						<span>{{u.UserName}}</span>
 					</li>
 				</div>
 			</ul>
 		</div>
-		<div class="linkuser">
-			<form>
-
-				<ui-select ng-model="user.selected" theme="bootstrap">
-		      <ui-select-match>{{$select.selected.Name}}</ui-select-match>
-		      <ui-select-choices repeat="u in users | filter: $select.search " >{{u.Name}}</ui-select-choices>
-		    </ui-select>
-
-				<input type="submit" ng-click="linkuser(project._id)">
-		</form>
-		</div>
+		<i class="material-icons" ng-click='openLinkUserModal()'>note_add</i>
 	</div>
 </div>

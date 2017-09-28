@@ -1,0 +1,11 @@
+<div class="linkuser">
+  <form>
+
+    <ui-select ng-model="user.selected" theme="bootstrap">
+      <ui-select-match>{{$select.selected.Name}}</ui-select-match>
+      <ui-select-choices repeat="u in users track by $index | filter: $select.search " >{{u.UserName}}</ui-select-choices>
+    </ui-select>
+
+    <input type="submit" ng-click="linkuser(project._id, u._id)">
+</form>
+</div>
