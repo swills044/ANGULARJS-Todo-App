@@ -5,12 +5,16 @@ var name = 'userProject';
 
 var userprojectsSchema = new mongoose.Schema({
 	Project: {
-		type: Schema.Types.ObjectId, 
+		type: Schema.Types.ObjectId,
 	},
 	User: {
 		type: Schema.Types.ObjectId
+	},
+	Type: {
+		type: String, enum:['admin', 'worker'],
+		default: 'admin'
 	}
-	
+
 });
 
 var model = mongoose.model(name, userprojectsSchema);

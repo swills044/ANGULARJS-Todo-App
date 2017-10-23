@@ -12,7 +12,6 @@ passport.use(new BearerStrategy(
             TokenString: accessToken
         }, function(err, token) {
             if (err) {
-
                 return done(err);
             }
 

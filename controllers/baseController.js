@@ -5,7 +5,10 @@ module.exports = function(c){
 	var Model = c.model;
 
 	function getAll(req, res) {
-		var query = Model.find();
+        var user = {
+            CreatedById: req.user.id
+        }
+		var query = Model.find(user);
 		query.exec(function (err, models) {
             if (err)
                 res.status(500).send(err);
@@ -49,10 +52,6 @@ module.exports = function(c){
                     for (var field in req.body) {
                         data[field] = req.body[field];
                     }
-                    /*if (!data.AuditInfo)
-                        data.AuditInfo = {};
-                    data.AuditInfo.EditedByUser = req.user._id;
-                    data.AuditInfo.EditDate = new Date();*/
                     data.save(function (err) {
                         if (err)
                             res.status(500).send(err);
@@ -71,10 +70,10 @@ module.exports = function(c){
 
 	function postNew(req,res){
 		var data = new Model(req.body);
-		
-		
+
+
         data.CreatedById = req.user._id;
-		
+
 		data.save(function(err){
 			if (err)
 				res.status(500).send(err);

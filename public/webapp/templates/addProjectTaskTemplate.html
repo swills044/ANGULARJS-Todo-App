@@ -1,0 +1,17 @@
+
+<div >
+  <div class="modal-body">
+    <form>
+      <!-- Task Name -->
+      <input type="text" ng-model="name" placeholder="Task" class="task">
+
+      <i class="material-icons open-datetimepicker">date_range</i>
+      <input id="datepicker" ng-model="duedate">
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" ng-click="newTask()">
+      Add Task
+    </button>
+  </div>
+</div>

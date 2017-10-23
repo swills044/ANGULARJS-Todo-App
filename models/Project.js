@@ -4,7 +4,7 @@ var name = 'project';
 var projectSchema = new mongoose.Schema({
 	Name: {
 		type: String,
-		required: true
+		required: true,
 	},
 	CreatedById: {
 		type: Schema.Types.ObjectId

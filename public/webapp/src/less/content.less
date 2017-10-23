@@ -1,0 +1,58 @@
+// main: ./style.less
+#content {
+	background-image: linear-gradient(180deg, #E9E9E7 2%, #EFEEEC 27%, #EEEEEC 58%, #D5D4D0 94%);
+
+	.container {
+		.tasks {
+			ul {
+				list-style: none;
+				cursor: pointer;
+				div	{
+					width: 50%;
+					.delete {
+						float: left;
+						display: inline;
+						color: @brand-primary;
+						padding: 8px;
+					}
+					li {
+						padding: 8px;
+						overflow: auto;
+						border-bottom: 1px solid @concrete;
+						span {
+							width: 75%;
+							font-size: 14px;
+						}
+						.cal {
+							float: right;
+							min-height: 24px;
+							display: inline-flex;
+							align-items: center;
+							.date {
+								font-size: 12px;
+								padding: 8px;
+							}
+							i {
+								color: @brand-primary;
+							}
+						}
+					}
+				}
+			}
+		}
+		.add_task {
+			i {
+				color: @brand-primary;
+				cursor: pointer;
+			}
+			.task_add{
+				color: @brand-primary;
+				font-size: 14px;
+				min-height: 24px;
+				display: inline-flex;
+				align-items: center;
+			}
+
+		}
+	}
+}

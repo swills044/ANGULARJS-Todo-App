@@ -1,0 +1,9 @@
+
+  <form>
+    <ui-select ng-model="user.status" theme="bootstrap">
+      <ui-select-match>{{$select.selected}}</ui-select-match>
+      <ui-select-choices repeat="s in statuss" >{{s}}</ui-select-choices>
+    </ui-select>
+
+    <button ng-click='editStatus(project._id)'>Submit</button>
+  </form>

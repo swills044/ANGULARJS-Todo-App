@@ -1,0 +1,55 @@
+
+<div class="container">
+	<div class="heading">
+		<h3 class="section-title">{{heading}}</h3>
+	</div>
+	<div class="tasks">
+		<ul>
+			<div ng-repeat="t in tasks">
+				<i class="material-icons delete" ng-click="delete(t._id)">delete_sweep</i>
+				<li>
+					<span>{{t.Name}}</span>
+					<div class="cal">
+						<i class="material-icons">date_range</i>
+						<span class="date">{{t.DueDate}}</span>
+					</div>
+					<div class="cal">
+						<i class="material-icons">assignment</i>
+						<span class="date">{{t.ProjectName}}</span>
+					</div>
+				</li>
+			</div>
+		</ul>
+	</div>
+	<div class="add_task">
+		<div class="task_add">
+			<i class="material-icons" ng-click="openAddTaskModal()" data-balloon="Add tasks" data-balloon-pos="down">note_add</i>
+		</div>
+	</div>
+</div>
+
+
+<!-- <h1 style="margin-top: 0px;">{{heading}}</h1>
+<div>
+	<ul>
+		<li ng-repeat="task in tasks track by $index">
+			{{task.Name}}
+			{{task.DueDate}}
+			<span class="glyphicon glyphicon-trash" ng-click="delete(task._id)"></span>
+		</li>
+	</ul>
+</div>
+<a href="" class="action action_add_item" ng-click="showForm"><span class="glyphicon glyphicon-plus"></span>Add Task</a>
+<form>
+
+	<input type="text" ng-model="Name" placeholder="task">
+	<input type="text" ng-model="Project" list="projects" placeholder="project">
+		<datalist id="projects">
+		    <option ng-repeat="p in projects" value="{{p._id}}">{{p.Name}}</option>
+		 </datalist>
+	<input type="date" ng-model="DueDate" placeholder="Due Date">
+	<input type="submit" ng-click="newTask()">
+</form>
+
+
+ -->
