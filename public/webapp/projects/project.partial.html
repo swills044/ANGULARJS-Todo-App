@@ -1,36 +1,38 @@
+<div class="container-fluid">
 
-
-<div id='project'>
-	<div class="container">
-		<h3 class="heading section-title">{{project.Name}} - {{project.Status}}<i class="material-icons" style='float: none!important;' ng-click='openStatusModal()'>mode_edit</i>  </h3>
-		<div class="tasks">
-			<h4>Tasks</h4>
-			<ul>
-				<div ng-repeat="t in tasks">
-					<i class="material-icons delete" ng-click="delete(t._id)">delete_sweep</i>
-					<li>
-						<span>{{t.Name}}</span>
-						<div class="cal">
-							<i class="material-icons">date_range</i>
-							<span class="date">{{t.DueDate}}</span>
+			<h3 class="heading section-title">
+				{{project.Name}} - {{project.Status}}
+				<i class="material-icons" id="edit" ng-click='openStatusModal()'>mode_edit</i>
+				<i class="material-icons" id="linkUser" ng-click='openLinkUserModal()'>note_add</i>
+				<!-- <div class="projectusers" ng-show="admin">
+					<h4>Users</h4>
+					<ul>
+						<div ng-repeat="u in users">
+							<i class="material-icons delete" ng-click='unlinkuser(project._id, u._id)'>highlight_off</i>
+							<li>
+								<span>{{u.UserName}}</span>
+							</li>
 						</div>
-					</li>
+					</ul>
+				</div> -->
+			</h3>
+			<div class="tasks">
+				<ul>
+					<div ng-repeat="t in tasks">
+						<i class="material-icons delete" ng-click="delete(t._id)">delete_sweep</i>
+						<li>
+							<span>{{t.Name}}</span>
+							<div class="cal">
+								<i class="material-icons">date_range</i>
+								<span class="date">{{t.DueDate}}</span>
+							</div>
+						</li>
+					</div>
+				</ul>
+			</div>
+			<div class="add_task">
+				<div class="task_add">
+					<i class="material-icons" ng-click='openTaskModal()'>note_add</i>
 				</div>
-			</ul>
-			<i class="material-icons" ng-click='openTaskModal()'>note_add</i>
-		</div>
-		<div class="projectusers" ng-show="admin">
-			<h4>Users</h4>
-			<ul>
-				<div ng-repeat="u in users">
-					<i class="material-icons delete" ng-click='unlinkuser(project._id, u._id)'>highlight_off</i>
-					<li>
-						<span>{{u.UserName}}</span>
-					</li>
-				</div>
-			</ul>
-			<i class="material-icons" ng-click='openLinkUserModal()'>note_add</i>
-		</div>
-		</div>
-	</div>
+			</div>
 </div>

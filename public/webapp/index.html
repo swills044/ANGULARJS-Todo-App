@@ -26,10 +26,14 @@ window.endpoint = 'http://localhost:5000/';
 <body ng-app='todoApp'>
 
 
-  <div ui-view>
-    <div ui-view='topbar' id="topbar"></div>
-    <div ui-view='sidebar-left' id="sidebar-left"></div>
-    <div ui-view='content-view' id="content"></div>
+  <div ui-view class="container-fluid">
+    <div class="row">
+      <div ui-view='topbar' id="topbar" class="col-md-12"></div>
+    </div>
+    <div class="row">
+      <div ui-view='sidebar-left' id="sidebar-left" class="col-md-3"></div>
+      <div ui-view='content-view' id="content" class="col-md-9"></div>
+    </div>
   </div>
 
 

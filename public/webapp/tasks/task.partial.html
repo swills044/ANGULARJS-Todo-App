@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container-fluid">
 	<div class="heading">
 		<h3 class="section-title">{{heading}}</h3>
 	</div>
@@ -27,29 +27,3 @@
 		</div>
 	</div>
 </div>
-
-
-<!-- <h1 style="margin-top: 0px;">{{heading}}</h1>
-<div>
-	<ul>
-		<li ng-repeat="task in tasks track by $index">
-			{{task.Name}}
-			{{task.DueDate}}
-			<span class="glyphicon glyphicon-trash" ng-click="delete(task._id)"></span>
-		</li>
-	</ul>
-</div>
-<a href="" class="action action_add_item" ng-click="showForm"><span class="glyphicon glyphicon-plus"></span>Add Task</a>
-<form>
-
-	<input type="text" ng-model="Name" placeholder="task">
-	<input type="text" ng-model="Project" list="projects" placeholder="project">
-		<datalist id="projects">
-		    <option ng-repeat="p in projects" value="{{p._id}}">{{p.Name}}</option>
-		 </datalist>
-	<input type="date" ng-model="DueDate" placeholder="Due Date">
-	<input type="submit" ng-click="newTask()">
-</form>
-
-
- -->

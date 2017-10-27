@@ -1,6 +1,39 @@
 // main: ./style.less
-#project {
-	.container {
+		.heading {
+			#edit {
+				float: none !important;
+			}
+			#linkUser{
+				float: none !important;
+			}
+			.projectusers {
+				h4 {
+					font-size: 16px;
+				}
+				ul{
+				   list-style: none;
+				   cursor: pointer;
+				   div{
+				   	  width: 50%;
+				   	  .delete {
+							float: left;
+							display: inline;
+							color: @brand-primary;
+							padding: 8px;
+					  	}
+				   	  li {
+				   	  	padding: 8px;
+								overflow: auto;
+								border-bottom: 1px dotted @brand-primary;
+								span {
+									width: 75%;
+									font-size: 14px;
+								}
+				   	  }
+				   }
+				}
+			}
+		}
 		.tasks {
 			h4 {
 				font-size: 16px;
@@ -38,35 +71,6 @@
 				}
 			}
 		}
-		.projectusers {
-			h4 {
-				font-size: 16px;
-			}
-			ul{
-			   list-style: none;
-			   cursor: pointer;
-			   div{
-			   	  width: 50%;
-			   	  .delete {
-						float: left;
-						display: inline;
-						color: @brand-primary;
-						padding: 8px;
-				  	}
-			   	  li {
-			   	  	padding: 8px;
-							overflow: auto;
-							border-bottom: 1px dotted @brand-primary;
-							span {
-								width: 75%;
-								font-size: 14px;
-							}
-			   	  }
-			   }
-			}
-		}
-	}
-}
 		.add_task {
 			i {
 				color: @brand-primary;
