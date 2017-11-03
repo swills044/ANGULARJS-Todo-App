@@ -1,17 +1,27 @@
 
-<div >
-  <div class="modal-body">
-    <form>
-      <!-- Task Name -->
-      <input type="text" ng-model="name" placeholder="Task" class="task">
-
-      <i class="material-icons open-datetimepicker">date_range</i>
-      <input id="datepicker" ng-model="duedate">
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button type="button" ng-click="newTask()">
-      Add Task
-    </button>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Create a new task.<small>It's easy!</small></h3>
+        <div class="panel-body">
+          <form role="form">
+            <div class="row">
+	    				<div class="col-xs-6 col-sm-6 col-md-6">
+	    					<div class="form-group">
+	                <input class="form-control input-sm" placeholder="Task Name" ng-model="name">
+	    					</div>
+	    				</div>
+	    				<div class="col-xs-6 col-sm-6 col-md-6">
+	    					<div class="form-group">
+                  <input class="form-control input-sm" type="date" ng-model="duedate" name="dateofbirth" id="dateofbirth">
+	    					</div>
+	    				</div>
+			    	</div>
+            <input type="submit" value="Register" class="btn btn-info btn-danger" ng-click="newTask()">
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

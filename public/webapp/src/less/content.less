@@ -1,60 +1,133 @@
 // main: ./style.less
+[type="date"] {
+	background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat !important;
+}
+[type="date"]::-webkit-inner-spin-button {
+	display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+	opacity: 0;
+}
+
 #content{
+	#sidebar-wrapper {
+		margin-right: -250px;
+		right: 0;
+		width: 250px;
+		position: fixed;
+		height: 100%;
+		overflow-y: auto;
+		z-index: 1000;
+		transition: all 0.5s ease-in 0s;
+		-webkit-transition: all 0.5s ease-in 0s;
+		-moz-transition: all 0.5s ease-in 0s;
+		-ms-transition: all 0.5s ease-in 0s;
+		-o-transition: all 0.5s ease-in 0s;
+		ul li{
+			text-decoration: none;
+			list-style-type: none;
+		}
+	}
+	.users{
+		background-color: #fafafa;
+	}
+	.sidebar-nav li a:active, .sidebar-nav li a:focus {
+		text-decoration: none;
+	}
+	#sidebar-wrapper.active {
+		right: 250px;
+		width: 250px;
+		transition: all 0.5s ease-out 0s;
+		-webkit-transition: all 0.5s ease-out 0s;
+		-moz-transition: all 0.5s ease-out 0s;
+		-ms-transition: all 0.5s ease-out 0s;
+		-o-transition: all 0.5s ease-out 0s;
+	}
 	position: fixed;
 	top: @top-bar-height;
 	right: 0;
 	bottom: 0;
-	background-color: #fff;
+	color: rgba(0, 0, 0, 0.7);
+	background-image: -webkit-repeating-linear-gradient(top, #e6e6e6, #e6e6e6 1px, #fff 1px, #fff 30px);
+	background-image: repeating-linear-gradient(180deg, #e6e6e6, #e6e6e6 1px, #fff 1px, #fff 30px);
 	border-left: @cream solid 1px;
-	.container {
+	&::before {
+		position: absolute;
+		content: "";
+		display: block;
+		width: 155px;
+		height: 50px;
+		top: 11px;
+		right: -43px;
+		background-color: rgba(236, 236, 236, 0.5);
+		-webkit-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+	.container-fluid {
 		.tasks {
-			ul {
-				list-style: none;
-				cursor: pointer;
-				div	{
-					width: 50%;
-					.delete {
-						float: left;
-						display: inline;
-						color: @brand-primary;
-						padding: 8px;
-					}
-					li {
-						padding: 8px;
-						overflow: auto;
-						border-bottom: 1px solid @concrete;
-						span {
-							width: 75%;
-							font-size: 14px;
-						}
-						.cal {
-							float: right;
-							min-height: 24px;
-							display: inline-flex;
-							align-items: center;
-							.date {
-								font-size: 12px;
-								padding: 8px;
-							}
-							i {
-								color: @brand-primary;
-							}
-						}
-					}
-				}
+
+			[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+				display: none !important;
 			}
-		}
-		.add_task {
-			i {
+			.list-wrapper {
+				height: 100%;
+				position: relative;
+				min-width: 45%;
+				padding: 50px;
+				border-radius: 5px;
+
+			}
+			.item {
+				margin:26px;
+				padding-left: 16px;
+				position: relative;
+			}
+			.item label {
 				color: @brand-primary;
+			  font-family: 'Open Sans', sans-serif;
+				font-size: 1.1em;
 				cursor: pointer;
 			}
-			.task_add{
-				color: @brand-primary;
-				font-size: 14px;
-				min-height: 24px;
-				display: inline-flex;
-				align-items: center;
+
+			input[type="checkbox"] {
+				visibility: hidden;
+			}
+
+			input[type="checkbox"] + label span {
+				width: 19px;
+				height: 19px;
+				position: absolute;
+				top: 0;
+				left: -5px;
+				background-color: #fff;
+				border: 1px solid #888;
+				border-radius: 4px;
+				cursor: pointer;
+			}
+
+			input[type="checkbox"]:checked + label {
+				color: #ccc;
+				text-decoration: line-through;
+			}
+			input[type="checkbox"]:checked + label span {
+				border: none;
+			}
+			input[type="checkbox"]:checked + label span:before, input[type="checkbox"]:checked + label span:after {
+				content: "";
+				width: 3px;
+				height: 21px;
+				position: absolute;
+				top: -2px;
+				left: 7px;
+				background-color: lightgreen;
+			}
+			input[type="checkbox"]:checked + label span:before {
+				-webkit-transform: rotate(-45deg);
+				transform: rotate(-45deg);
+			}
+			input[type="checkbox"]:checked + label span:after {
+				-webkit-transform: rotate(45deg);
+				transform: rotate(45deg);
 			}
 
 		}

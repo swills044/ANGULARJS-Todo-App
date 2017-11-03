@@ -1,38 +1,30 @@
+
 <div class="container-fluid">
 
-			<h3 class="heading section-title">
-				{{project.Name}} - {{project.Status}}
-				<i class="material-icons" id="edit" ng-click='openStatusModal()'>mode_edit</i>
-				<i class="material-icons" id="linkUser" ng-click='openLinkUserModal()'>note_add</i>
-				<!-- <div class="projectusers" ng-show="admin">
-					<h4>Users</h4>
-					<ul>
-						<div ng-repeat="u in users">
-							<i class="material-icons delete" ng-click='unlinkuser(project._id, u._id)'>highlight_off</i>
-							<li>
-								<span>{{u.UserName}}</span>
-							</li>
-						</div>
-					</ul>
-				</div> -->
+			<h3 class="heading section-title" id="menu-toggle">
+				{{project.Name}}
+				<!-- - {{project.Status}} -->
+					<div id="sidebar-wrapper">
+					  <ul class="sidebar-nav">
+							<li><span ng-click='openStatusModal()'>Change Status</span></li>
+							<li><span ng-click='openLinkUserModal()'>New User</span></li>
+							<li><span ng-click='openTaskModal()'>New Task</span></li>
+							<li><span ng-click="deleteProject(project._id)">Delete Project</span></li>
+							<li class="users" ng-show="admin"><span ng-click="openUsers()">Users</span></li>
+					  </ul>
+					</div>
+				</div>
 			</h3>
 			<div class="tasks">
-				<ul>
-					<div ng-repeat="t in tasks">
-						<i class="material-icons delete" ng-click="delete(t._id)">delete_sweep</i>
-						<li>
-							<span>{{t.Name}}</span>
-							<div class="cal">
-								<i class="material-icons">date_range</i>
-								<span class="date">{{t.DueDate}}</span>
+				<div class="list-wrapper" ng-class="{'error' : allTasks=='error'}">
+					<div class="list" ng-hide="allTasks=='error'" ng-cloak>
+						<form>
+							<div class="item" ng-repeat="task in tasks">
+								<input type="checkbox" id="task-{{$index}}" ng-true-value="'completed'" ng-false-value="'todo'" ng-model="task.status" ng-change="completeTask(task)" ng-click="delete(task._id)"/>
+								<label for="task-{{$index}}">{{ task.Name }} | {{task.DueDate}} | {{task.ProjectName}}<span></span></label>
 							</div>
-						</li>
+						</form>
 					</div>
-				</ul>
-			</div>
-			<div class="add_task">
-				<div class="task_add">
-					<i class="material-icons" ng-click='openTaskModal()'>note_add</i>
 				</div>
 			</div>
 </div>

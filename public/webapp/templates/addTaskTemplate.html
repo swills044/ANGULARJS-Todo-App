@@ -1,64 +1,33 @@
 
-<style media="screen">
-  *:focus {outline: none;}
-  .modalSelected {
-    text-align: center;
-    -moz-box-shadow:    inset 0 0 10px #000000;
-    -webkit-box-shadow: inset 0 0 10px #000000;
-    box-shadow:         inset 0 0 10px #000000;
-    background: #fff9f9; /* Old browsers */
-    background: -moz-linear-gradient(45deg, #fff9f9 0%, #f6f6f6 47%, #f4f4f4 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(45deg, #fff9f9 0%,#f6f6f6 47%,#f4f4f4 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(45deg, #fff9f9 0%,#f6f6f6 47%,#f4f4f4 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff9f9', endColorstr='#f4f4f4',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-  }
-  .task{
-    height: 30px;
-    margin-top: 10px;
-    width: 50%;
-    border:1px solid #aaa;
-    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
-    border-radius:2px;
-  }
-  .extra{
-    width: 50%;
-    text-align: center;
-    margin: 10px;
-  }
-  .project{
-    width: 50%;
-    border:1px solid #aaa;
-    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
-    border-radius:2px;
-  }
-  .form-control{
-    height: 30px !important;
-    color: black !important;
-
-  }
-  .choices{
-    width: 50% !important;
-    color: black !important;
-
-  }
-  .select{
-    width: 50% !important;
-    color: black !important;
-  }
-</style>
-
-<form class="modalSelected">
-
-  <input type="text" ng-model="name" placeholder="Task" class="task">
-
-  <div class="extra">
-    <ui-select ng-model="user.selected" class="select">
-      <ui-select-match class="project">{{$select.selected.Name}}</ui-select-match>
-      <ui-select-choices repeat="p in projects | filter: $select.search " class="choices">{{p.Name}}</ui-select-choices>
-    </ui-select>
-
-    <i class="material-icons open-datetimepicker">date_range</i>
-    <input id="datepicker" ng-model="duedate">
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Create a new task.<small>It's easy!</small></h3>
+        <div class="panel-body">
+          <form role="form">
+            <div class="row">
+	    				<div class="col-xs-6 col-sm-6 col-md-6">
+	    					<div class="form-group">
+	                <input class="form-control input-sm" placeholder="Task Name" ng-model="name">
+	    					</div>
+	    				</div>
+	    				<div class="col-xs-6 col-sm-6 col-md-6">
+	    					<div class="form-group">
+                  <input class="form-control input-sm" type="date" ng-model="duedate" name="dateofbirth" id="dateofbirth">
+	    					</div>
+	    				</div>
+			    	</div>
+            <div class="form-group">
+              <ui-select ng-model="user.selected" class="select form-control input-sm">
+                <ui-select-match class="select form-control input-sm">{{$select.selected.Name}}</ui-select-match>
+                <ui-select-choices repeat="p in projects | filter: $select.search " class="select form-control input-sm">{{p.Name}}</ui-select-choices>
+              </ui-select>
+			    	</div>
+            <input type="submit" value="Register" class="btn btn-info btn-danger" ng-click="newTask()">
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-  <button type="submit" ng-click="newTask()">Add Task</button>
-</form>
+</div>

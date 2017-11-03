@@ -3,37 +3,24 @@
     <div class="date-filters">
         <ul>
             <li>
-                <a ng-click='inbox()'>
-                <i class="material-icons">move_to_inbox</i>Inbox</a>
+                <a ng-click='inbox()'>Inbox</a>
             </li>
             <li>
-                <a ng-click='today()'><i class="material-icons">date_range</i>Today</a>
+                <a ng-click='today()'>Today</a>
             </li>
             <li>
-                <a ng-click='week()'><i class="material-icons">update</i>Next 7 Days</a>
+                <a ng-click='week()'>Next 7 Days</a>
             </li>
         </ul>
     </div>
-    <h3 class="section-title">Project Filters</h3>
+    <h3 class="section-title" id="test">Project Filters<i class="material-icons" id="add" ng-click="openAddProjectModal()">add_circle_outline</i></h3>
     <div class="projects">
         <ul>
-          <li ng-repeat="p in projects">
-            <a ng-click="projectpage(p._id)"> {{p.Name}} </a>
-            <i class="material-icons" ng-click="delete(p._id)">delete_sweep</i>
+          <li ng-repeat="p in projects" class="p">
+            <a ng-click="projectpage(p._id)">
+              {{p.Name}}
+            </a>
           </li>
         </ul>
     </div>
-    <div class="add_project">
-        <div class="project-add">
-            <i class="material-icons" ng-click="openAddProjectModal()" data-balloon="Add Project" data-balloon-pos="right">note_add</i>
-        </div>
-    </div>
 </div>
-<!--
-<a href="" class="action action_add_item" ng-click='showForm'><span class="glyphicon glyphiconc glyphicon-plus"></span>Add project</a>
-<form>
-
-  <input type="text" ng-model="Name" placeholder="Project">
-  <input type="submit" ng-click='newProject()'>
-</form>
-</div>-->

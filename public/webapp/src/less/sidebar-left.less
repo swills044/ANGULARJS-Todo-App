@@ -1,23 +1,35 @@
 // main: ./style.less
 #sidebar-left {
+  background-color: #fafafa;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  bottom: 0;
+  #add{
+    display: none;
+  }
     .container {
         ul {
             list-style: none;
             padding-left: 0;
             li {
+                width: 100%;
                 padding-left: 32px;
                 position: relative;
                 margin-bottom: 8px;
-                a {
-                    color: black !important;
-                    font-size: 14px;
-                    font-weight: 400;
+                transition-duration: 0.7s;
+                &:hover {
+                  background-color: white;
+
                 }
-                i {
-                    position: absolute;
-                    left: 0;
-                    top: 0px;
-                    color: @brand-primary;
+                a {
+                  text-decoration: none;
+                  cursor: pointer;
+                  color: #111;
+                  font-family: 'Open Sans', sans-serif;
+                  font-size: 14px;
+                  font-weight: 300;
+                  line-height: 32px;
                 }
             }
         }
@@ -59,7 +71,6 @@
                         padding-right: 8px;
                         margin-top: 4px;
                         border: none;
-                        .border-radius(2px);
 
                     }
 

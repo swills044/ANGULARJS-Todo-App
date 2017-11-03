@@ -10,17 +10,17 @@
 
 
 .ui-select-offscreen {
-  clip: rect(0 0 0 0) !important;
-  width: 1px !important;
-  height: 1px !important;
-  border: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-  position: absolute !important;
-  outline: 0 !important;
-  left: 0px !important;
-  top: 0px !important;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: absolute;
+  outline: 0;
+  left: 0px;
+  top: 0px;
 }
 
 
@@ -28,9 +28,6 @@
 /* Select2 theme */
 
 /* Mark invalid Select2 */
-.ng-dirty.ng-invalid > a.select2-choice {
-    border-color: #D44950;
-}
 
 .select2-result-single {
   padding-left: 0;
@@ -49,33 +46,6 @@ body > .select2-container.open {
 }
 
 /* Handle up direction Select2 */
-.ui-select-container[theme="select2"].direction-up .ui-select-match,
-.ui-select-container.select2.direction-up .ui-select-match {
-    border-radius: 4px; /* FIXME hardcoded value :-/ */
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-.ui-select-container[theme="select2"].direction-up .ui-select-dropdown,
-.ui-select-container.select2.direction-up .ui-select-dropdown {
-    border-radius: 4px; /* FIXME hardcoded value :-/ */
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-
-    border-top-width: 1px;  /* FIXME hardcoded value :-/ */
-    border-top-style: solid;
-
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
-
-    margin-top: -4px; /* FIXME hardcoded value :-/ */
-}
-.ui-select-container[theme="select2"].direction-up .ui-select-dropdown .select2-search,
-.ui-select-container.select2.direction-up .ui-select-dropdown .select2-search {
-    margin-top: 4px; /* FIXME hardcoded value :-/ */
-}
-.ui-select-container[theme="select2"].direction-up.select2-dropdown-open .ui-select-match,
-.ui-select-container.select2.direction-up.select2-dropdown-open .ui-select-match {
-    border-bottom-color: #5897fb;
-}
 
 .ui-select-container[theme="select2"] .ui-select-dropdown .ui-select-search-hidden,
 .ui-select-container[theme="select2"] .ui-select-dropdown .ui-select-search-hidden input{
@@ -88,38 +58,6 @@ body > .select2-container.open {
 }
 
 /* Selectize theme */
-
-/* Helper class to show styles when focus */
-.selectize-input.selectize-focus{
-  border-color: #007FBB !important;
-}
-
-/* Fix input width for Selectize theme */
-.selectize-control.single > .selectize-input > input {
-  width: 100%;
-}
-
-/* Fix line break when there's at least one item selected with the Selectize theme */
-.selectize-control.multi > .selectize-input > input {
-  margin: 0 !important;
-}
-
-/* Fix dropdown width for Selectize theme */
-.selectize-control > .selectize-dropdown {
-  width: 100%;
-}
-
-/* Mark invalid Selectize */
-.ng-dirty.ng-invalid > div.selectize-input {
-    border-color: #D44950;
-}
-
-/* Handle up direction Selectize */
-.ui-select-container[theme="selectize"].direction-up .ui-select-dropdown {
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
-    margin-top: -2px; /* FIXME hardcoded value :-/ */
-}
-
 .ui-select-container[theme="selectize"] input.ui-select-search-hidden{
     opacity: 0;
     height: 0;
@@ -131,17 +69,6 @@ body > .select2-container.open {
 }
 
 /* Bootstrap theme */
-
-/* Helper class to show styles when focus */
-.btn-default-focus {
-  color: #333;
-  background-color: #EBEBEB;
-  border-color: #ADADAD;
-  text-decoration: none;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-}
 
 .ui-select-bootstrap .ui-select-toggle {
   position: relative;

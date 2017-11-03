@@ -14,22 +14,10 @@
       var modalInstance = $uibModal.open({
         //path of the modal template
         templateUrl: './templates/addTaskTemplate.html',
-        windowClass: 'app-modal-window',
         //modal controller
         controller: ['$scope', '$uibModalInstance',
         function($scope, $uibModalInstance) {
           $scope.projects = rProjects;
-          $('.open-datetimepicker').click(function(event){
-            event.preventDefault();
-            $('#datepicker').focus();
-          });
-
-          $(function () {
-            $( "#datepicker" ).datepicker({
-              changeMonth: true,//this option for allowing user to select month
-              changeYear: true //this option for allowing user to select from year range
-            });
-          })
 
           $scope.user = {};
 
@@ -71,10 +59,9 @@
         }
       ]
     });
-  }
+    }
 
-
-  $scope.delete = function(id){
+    $scope.delete = function(id){
 
     swal({
       title: 'Are you sure?',
@@ -105,6 +92,26 @@
 
   }
 
+    $scope.completedTasks = 0;
+
+    $scope.completeTask = function(task) {
+            if (task.status == "completed") {
+                $scope.completedTasks++;
+            }
+            else if (task.status == "todo") {
+                $scope.completedTasks--;
+            }
+
+    }
+
+    $scope.messages = ['count', 'done', 'error'];
+    $scope.displayMessage = $scope.messages[0];
+
+    //style functions
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#sidebar-wrapper").toggleClass("active");
+    });
 
 
 }
