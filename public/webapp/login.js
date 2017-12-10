@@ -24,6 +24,7 @@ function login(event) {
             $('#login-button').removeClass('animated bounceIn');
             $('#login-button').addClass('animated shake');
             $("#login-button").html(error.responseText);
+            setTimeout(function(){$("#login-button").html("Log in");}, 2000);
         });
     } else {
         $("#login-failed p.lead").text("Please check input.");

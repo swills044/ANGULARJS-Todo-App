@@ -3,84 +3,28 @@
   background-color: #fafafa;
   position: fixed;
   top: 64px;
-  left: 0;
   bottom: 0;
-  #add{
-    display: none;
-  }
-    .container {
-        ul {
-            list-style: none;
-            padding-left: 0;
-            li {
-                width: 100%;
-                padding-left: 32px;
-                position: relative;
-                margin-bottom: 8px;
-                transition-duration: 0.7s;
-                &:hover {
-                  background-color: white;
-
-                }
-                a {
-                  text-decoration: none;
-                  cursor: pointer;
-                  color: #111;
-                  font-family: 'Open Sans', sans-serif;
-                  font-size: 14px;
-                  font-weight: 300;
-                  line-height: 32px;
-                }
-            }
+  ul {
+    list-style: none;
+    padding-left: 0;
+    li {
+        width: 100%;
+        padding-left: 32px;
+        position: relative;
+        margin-bottom: 8px;
+        transition-duration: 0.7s;
+        &:hover {
+          background-color: white;
         }
-        .add_project {
-            //width:  @side-bar-width;
-            i {
-                color: @brand-primary;
-                cursor: pointer;
-            }
-            .project-add {
-                color: @brand-primary;
-                font-size: 14px;
-                min-height: 24px;
-                display: inline-flex;
-                align-items: center;
-
-            }
-            .form {
-                form {
-                    width: 50%;
-                    .project {
-                        display: block;
-                        width: 80%;
-                        border: 1px solid @concrete;
-                        padding: 6px;
-                        width: 100%;
-                         &:focus{
-                            outline: none;
-                        }
-                    }
-                    button{
-                        font-size: 12px;
-                        display: block;
-                        background-color: @brand-primary;
-                        color: #fff;
-                        padding-top: 4px;
-                        padding-bottom: 4px;
-                        padding-left: 8px;
-                        padding-right: 8px;
-                        margin-top: 4px;
-                        border: none;
-
-                    }
-
-                    input::-webkit-input-placeholder{
-                        font-size: 14px;
-                        font-weight: 400;
-                        text-align: center;
-                    }
-            }
-            }
+        a {
+          text-decoration: none;
+          cursor: pointer;
+          color: #111;
+          font-family: 'Open Sans', sans-serif;
+          font-size: 14px;
+          font-weight: 300;
+          line-height: 32px;
         }
     }
+  }
 }

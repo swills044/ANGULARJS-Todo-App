@@ -1,43 +1,11 @@
 (function(angular) {
   var module = angular.module('todoApp', [
     'ui.router',
-    'angularMoment',
     'ngRoute',
     'ngSanitize',
     'ui.bootstrap',
     'ui.select'
   ]);
-
-
-  module.service('authInterceptor', function($q) {
-    var service = this;
-
-    service.responseError = function(response) {
-      if (response.status == 401) {
-        window.location = "/login.html";
-      }
-      return $q.reject(response);
-    };
-  })
-  module.config(['$httpProvider', function($httpProvider) {
-    $httpProvider.interceptors.push('authInterceptor');
-  }])
-
-
-  module.service('errorInterceptor', function($q, $timeout, $stateParams) {
-    var service = this;
-
-    service.responseError = function(response) {
-      if (response.status == 404) {
-        window.location = "/webapp/index.html";
-      }
-      return $q.reject(response);
-    };
-  })
-  module.config(['$httpProvider', function($httpProvider) {
-    $httpProvider.interceptors.push('errorInterceptor');
-  }])
-
 
 
   module.config(config);
@@ -135,7 +103,6 @@
         },
         adminCheck: function(projectService, $stateParams){
           var userid = localStorage.getItem('UserId');
-
           return projectService.adminCheck($stateParams, userid)
           .then(function mySuccess(res){
             return res.data;
@@ -147,5 +114,39 @@
     })
   }
 
+  //Error interceptors
+
+  //When users AccessToken is removed then return them to log out
+    module.service('authInterceptor', function($q) {
+      var service = this;
+
+      service.responseError = function(response) {
+        if (response.status == 401) {
+          window.location = "/login.html";
+        }
+        return $q.reject(response);
+      };
+    })
+    module.config(['$httpProvider', function($httpProvider) {
+      $httpProvider.interceptors.push('authInterceptor');
+    }])
+
+  //When an error is recieved redirect them to the root
+    module.service('errorInterceptor', function($q, $timeout, $stateParams) {
+      var service = this;
+
+      service.responseError = function(response) {
+        if (response.status == 404) {
+          window.location = "/webapp/index.html";
+        }
+        else if (response.status == 400) {
+          window.location = "/webapp/index.html";
+        }
+        return $q.reject(response);
+      };
+    })
+    module.config(['$httpProvider', function($httpProvider) {
+      $httpProvider.interceptors.push('errorInterceptor');
+    }])
 
 }(angular));

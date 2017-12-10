@@ -86,7 +86,7 @@
                         )
                 },
                 rHeading: function(){
-                    return "next 7 days"
+                    return "Next 7 Days"
                 }
             }
         })

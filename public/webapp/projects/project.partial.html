@@ -1,30 +1,39 @@
 
-<div class="container-fluid">
+		<h3 id="section-title">
+			Project Name: {{project.Name}}
+		</h3>
 
-			<h3 class="heading section-title" id="menu-toggle">
-				{{project.Name}}
-				<!-- - {{project.Status}} -->
-					<div id="sidebar-wrapper">
-					  <ul class="sidebar-nav">
-							<li><span ng-click='openStatusModal()'>Change Status</span></li>
-							<li><span ng-click='openLinkUserModal()'>New User</span></li>
-							<li><span ng-click='openTaskModal()'>New Task</span></li>
-							<li><span ng-click="deleteProject(project._id)">Delete Project</span></li>
-							<li class="users" ng-show="admin"><span ng-click="openUsers()">Users</span></li>
-					  </ul>
-					</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<table class="table">
+					 <thead>
+						 <tr>
+							 <th>Action</th>
+							 <th>DueDate</th>
+							 <th>Task Name</th>
+						 </tr>
+					 </thead>
+					 <tbody>
+						 <tr ng-repeat="task in tasks">
+							 <td><button type="button" class="btn-danger" ng-click="delete(task._id)">Delete</button> <button type="button" class="btn-danger" ng-click="taskInfo(task)">Info</button></td>
+							 <td>{{task.DueDate}}</td>
+							 <td>{{task.Name}}</td>
+							 <td ng-show="task.ProjectName">{{task.ProjectName}}</td>
+						 </tr>
+					 </tbody>
+				 </table>
 				</div>
-			</h3>
-			<div class="tasks">
-				<div class="list-wrapper" ng-class="{'error' : allTasks=='error'}">
-					<div class="list" ng-hide="allTasks=='error'" ng-cloak>
-						<form>
-							<div class="item" ng-repeat="task in tasks">
-								<input type="checkbox" id="task-{{$index}}" ng-true-value="'completed'" ng-false-value="'todo'" ng-model="task.status" ng-change="completeTask(task)" ng-click="delete(task._id)"/>
-								<label for="task-{{$index}}">{{ task.Name }} | {{task.DueDate}} | {{task.ProjectName}}<span></span></label>
-							</div>
-						</form>
+				<div class="col-sm-4" id="sidebar-wrapper" ng-show="admin">
+						<ul style="cursor:pointer;">
+							<li><span ng-click='openDescriptionModal()' class="btn btn-danger btn-lg">Description</span></li>
+							<li><span ng-click='openLinkUserModal()' class="btn btn-danger btn-lg">New User</span></li>
+							<li><span ng-click='openTaskModal()' class="btn btn-danger btn-lg">New Task</span></li>
+							<li><span ng-click='removeYourself(project._id)' class="btn btn-danger btn-lg">Remove Yourself</span></li>
+							<li><span ng-click="deleteProject(project._id)" class="btn btn-danger btn-lg" >Delete Project</span></li>
+							<hr>
+							<li><span ng-click="usersClick()" class="btn btn-danger btn-lg">Users</span></li>
+						</ul>
 					</div>
-				</div>
 			</div>
-</div>
+		</div>

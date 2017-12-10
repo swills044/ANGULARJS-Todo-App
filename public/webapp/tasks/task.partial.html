@@ -1,24 +1,29 @@
 
-<div class="container-fluid">
-	<div class="header">
-		<h3 class="section-title" id="menu-toggle">{{heading}}
-			<div id="sidebar-wrapper">
-				<ul class="sidebar-nav">
-					<li><span ng-click="openAddTaskModal()" data-balloon="Add tasks" data-balloon-pos="down">Add task</span></li>
-				</ul>
-			</div></h3>
-	</div>
+	<h3 id="section-title">
+			{{heading}}
+	</h3>
 
-	<div class="tasks">
-		<div class="list-wrapper" >
-			<div class="list" ng-hide="allTasks=='error'" ng-cloak>
-				<form>
-					<div class="item" ng-repeat="task in tasks">
-						<input type="checkbox" ng-model="task.status" ng-change="completeTask(task)" ng-click="delete(task._id)"/>
-						<label for="task-{{$index}}">{{ task.Name }} | {{task.DueDate}} | {{task.ProjectName}}<span></span></label>
-					</div>
-				</form>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-11">
+				<table class="table">
+				 <thead>
+					 <tr>
+						 <th>DueDate</th>
+						 <th>Task Name</th>
+						 <th>Project</th>
+						 <th>Action</th>
+					 </tr>
+				 </thead>
+				 <tbody>
+					 <tr ng-repeat="task in tasks">
+						 <td>{{task.DueDate}}</td>
+						 <td>{{task.Name}}</td>
+						 <td> <span ng-show="task.ProjectName">{{task.ProjectName}}</span> <span ng-show="!task.ProjectName">No Project</span> </td>
+						 <td><button type="button" class="btn-danger" ng-click="delete(task._id)">Delete</button> <button type="button" class="btn-danger" ng-click="taskInfo(task)">Info</button> </td>
+					 </tr>
+				 </tbody>
+			 </table>
 			</div>
 		</div>
 	</div>
-</div>

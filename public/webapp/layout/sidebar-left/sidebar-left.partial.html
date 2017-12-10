@@ -1,26 +1,36 @@
-<div class="container">
-    <h3 class="section-title">Date Filters</h3>
-    <div class="date-filters">
-        <ul>
-            <li>
-                <a ng-click='inbox()'>Inbox</a>
-            </li>
-            <li>
-                <a ng-click='today()'>Today</a>
-            </li>
-            <li>
-                <a ng-click='week()'>Next 7 Days</a>
-            </li>
-        </ul>
+  <label style="font-size: 17px; margin-top: 20px;">Username</label>
+  <span style="font-size: 17px;">{{user.UserName}}</span>
+  <hr>
+  <div>
+    <h3 id="section-title" style="display: inline;">Tasks</h3>
+    <button type="button" class="btn btn-danger" ng-click="openAddTaskModal()" style="float: right; display: inline;">Add Task</button>
+  </div>
+
+  <div class="date-filters">
+    <ul>
+        <li>
+            <a ng-click='inbox()'>All Tasks</a>
+        </li>
+        <li>
+            <a ng-click='today()'>Today</a>
+        </li>
+        <li>
+            <a ng-click='week()'>Next 7 Days</a>
+        </li>
+    </ul>
     </div>
-    <h3 class="section-title" id="test">Project Filters<i class="material-icons" id="add" ng-click="openAddProjectModal()">add_circle_outline</i></h3>
-    <div class="projects">
-        <ul>
-          <li ng-repeat="p in projects" class="p">
-            <a ng-click="projectpage(p._id)">
-              {{p.Name}}
-            </a>
-          </li>
-        </ul>
+    <hr>
+    <div>
+      <h3 id="section-title" style="display: inline;">Projects</h3>
+      <button type="button" class="btn btn-danger" ng-click="openAddProjectModal()" style="float: right; display: inline;">Add Project</button>
     </div>
-</div>
+
+    <div class="projects-s">
+      <ul>
+        <li ng-repeat="p in projects" class="p">
+          <a ng-click="projectpage(p._id)">
+            {{p.Name}}
+          </a>
+        </li>
+      </ul>
+    </div>

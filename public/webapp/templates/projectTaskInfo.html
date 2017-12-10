@@ -1,0 +1,40 @@
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{task.Name}}.<small>Task Info!</small><button type="button" class="btn btn-danger" style="float: right;" ng-click="linkTaskUser(task._id)">Add User</button></h3>
+          <hr>
+          <div class="panel-body">
+            <div>
+              <label>Description</label>
+              <p>{{task.Description}}</p>
+            </div>
+            <div ng-show="task.ProjectName">
+              <label>Project</label>
+              <p>{{task.ProjectName}}</p>
+            </div>
+            <div>
+              <label>Due Date</label>
+              <p>{{task.DueDate}}</p>
+            </div>
+            <div>
+              <label>Users</label>
+              <table class="table">
+                <thead>
+                  <th>Action:</th>
+                  <th>Name:</th>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="u in tusers" >
+                    <td class="btn btn-danger" ng-click="unlinkuser(task._id, u._id)">Delete User</td>
+                    <td>{{u.UserName}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

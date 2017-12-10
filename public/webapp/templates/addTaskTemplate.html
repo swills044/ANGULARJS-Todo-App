@@ -1,33 +1,46 @@
 
-<div class="row">
-  <div class="col-md-12">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Create a new task.<small>It's easy!</small></h3>
-        <div class="panel-body">
-          <form role="form">
-            <div class="row">
-	    				<div class="col-xs-6 col-sm-6 col-md-6">
-	    					<div class="form-group">
-	                <input class="form-control input-sm" placeholder="Task Name" ng-model="name">
-	    					</div>
-	    				</div>
-	    				<div class="col-xs-6 col-sm-6 col-md-6">
-	    					<div class="form-group">
-                  <input class="form-control input-sm" type="date" ng-model="duedate" name="dateofbirth" id="dateofbirth">
-	    					</div>
-	    				</div>
-			    	</div>
-            <div class="form-group">
-              <ui-select ng-model="user.selected" class="select form-control input-sm">
-                <ui-select-match class="select form-control input-sm">{{$select.selected.Name}}</ui-select-match>
-                <ui-select-choices repeat="p in projects | filter: $select.search " class="select form-control input-sm">{{p.Name}}</ui-select-choices>
-              </ui-select>
-			    	</div>
-            <input type="submit" value="Register" class="btn btn-info btn-danger" ng-click="newTask()">
-          </form>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Create a new task.<small>It's easy!</small></h3>
+          <div class="panel-body">
+
+              <div class="row">
+  	    				<div class="col-xs-6 col-sm-6 col-md-6">
+  	    					<div class="form-group">
+                    <label>Task Name:</label>
+  	                <input class="form-control input-sm" placeholder="Task Name" ng-model="name">
+  	    					</div>
+  	    				</div>
+  	    				<div class="col-xs-6 col-sm-6 col-md-6">
+  	    					<div class="form-group">
+                    <label>Due Date</label>
+                    <input class="form-control input-sm" type="date" ng-model="duedate" name="dateofbirth" id="dateofbirth">
+  	    					</div>
+  	    				</div>
+  			    	</div>
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="form-group">
+                    <label>Task To Project</label>
+                    <ui-select ng-model="user.selected">
+                      <ui-select-match>{{$select.selected.Name}}</ui-select-match>
+                      <ui-select-choices repeat="p in projects | filter: $select.search ">{{p.Name}}</ui-select-choices>
+                    </ui-select>
+      			    	</div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="form-group">
+                    <label>Description</label>
+                    <textarea ng-model="desc" style="width: 100%;"></textarea>
+      			    	</div>
+                </div>
+              </div>
+              <input type="submit" value="Confirm" class="btn btn-info btn-danger" ng-click="newTask()">
+
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>

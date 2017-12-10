@@ -1,0 +1,25 @@
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{task.Name}}.<small>Task Info!</small> </h3>
+          <hr>
+          <div class="panel-body">
+            <div>
+              <label>Description</label>
+              <p>{{task.Description}}</p>
+            </div>
+            <div ng-show="task.ProjectName">
+              <label>Project</label>
+              <p>{{task.ProjectName}}</p>
+            </div>
+            <div>
+              <label>Due Date</label>
+              <p>{{task.DueDate}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

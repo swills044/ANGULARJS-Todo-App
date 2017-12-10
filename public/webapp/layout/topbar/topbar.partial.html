@@ -1,24 +1,23 @@
-<div id='topbar'>
-  <div class="container">
-    <div class="col-md-2 name" data-balloon="Your user" data-balloon-pos="down">
-      <span>{{user.Name}}</span>
-    </div>
-    <div class="col-md-2 logo">
+
+    <div class="logo">
       <i class="material-icons">check_circle</i>
     </div>
-    <div class="col-md-4 search" data-balloon="Navagate to your projects" data-balloon-pos="down">
-      <ui-select ng-model="project.selected" theme="bootstrap" on-select="stateFind($item, $model)">
-        <ui-select-match>{{$select.selected.Name}}</ui-select-match>
-        <ui-select-choices repeat="p in projects | filter: $select.search">{{p.Name}}</ui-select-choices>
-      </ui-select>
-    </div>
-    <div class="col-md-4 actions">
+
+    <div class="actions" style="float: right; margin-left: 10px; margin-right: 10px;">
       <div class="action">
-        <a ng-click="openTaskModal()" class="addTask"><i class="material-icons" data-balloon="Add tasks" data-balloon-pos="down">note_add</i></a>
-      </div>
-      <div class="action">
-        <a href="" ng-click='logout()' class="logout"><i class="material-icons" data-balloon="Logout!" data-balloon-pos="down">exit_to_app</i></a>
+        <a href="" ng-click='logout()' class="logout"><i class="material-icons">exit_to_app</i></a>
       </div>
     </div>
+
+
+    <div class="search" style="width: 25%; float: right;">
+      <div style="width: 100%;">
+        <ui-select ng-model="project.selected" on-select="stateFind($item, $model)">
+          <ui-select-match>{{$select.selected.Name}}</ui-select-match>
+          <ui-select-choices repeat="p in projects | filter: $select.search">{{p.Name}}</ui-select-choices>
+        </ui-select>
+      </div>
+    </div>
+
+
   </div>
-</div>

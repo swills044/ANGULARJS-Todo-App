@@ -66,6 +66,16 @@
 				headers: {'Authorization': 'Bearer ' + localStorage.getItem("tokenString")}
 			})
 		}
+		//User projects
+		service.taskUsers = function(id){
+
+			return $http({
+				method: 'GET',
+				url: window.endpoint + 'taskUsers/' + id,
+				headers: {'Authorization': 'Bearer ' + localStorage.getItem("tokenString")}
+
+			});
+		}
 
 		return service;
 	}

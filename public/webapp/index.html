@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--[if lt IE 9]>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.js"></script>
-  <script>
-  document.createElement('ui-select');
-  document.createElement('ui-select-match');
-  document.createElement('ui-select-choices');
-</script>
-<![endif]-->
-<title>Todo</title>
-<script type="text/javascript">
-window.endpoint = 'http://localhost:5000/';
-</script>
-<link rel="icon" type="image/png" href="./favicon.ico">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="./src/css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.10.2/sweetalert2.css">
-<link rel="stylesheet" href="./select.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css">
-<link rel="stylesheet" href="../bower_components/animate.css/animate.min.css">
-<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <!--[if lt IE 9]>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.js"></script>
+      <script>
+        document.createElement('ui-select');
+        document.createElement('ui-select-match');
+        document.createElement('ui-select-choices');
+      </script>
+  <![endif]-->
+
+  <title>Todo</title>
+
+  <script type="text/javascript">
+    window.endpoint = 'http://localhost:5000/';
+  </script>
+
+  <link rel="icon" type="image/png" href="./favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./src/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.10.2/sweetalert2.css">
+  <link rel="stylesheet" href="../bower_components/select/select.css">
+  <link rel="stylesheet" href="../bower_components/animate.css/animate.min.css">
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
 
 </head>
 
-<body ng-app='todoApp'>
+<body ng-app='todoApp' style="overflow: hidden;">
 
 
-  <div ui-view class="container-fluid">
-    <div class="row">
-      <div ui-view='topbar' id="topbar" class="col-md-12"></div>
-    </div>
-    <div class="row">
-      <div ui-view='sidebar-left' id="sidebar-left" class="col-md-3"></div>
-      <div ui-view='content-view' id="content" class="col-md-9"></div>
+  <div ui-view >
+    <div ui-view='topbar' id="topbar" class="navbar navbar-fixed-top"></div>
+    <div class="container-fluid">
+      <div class="row">
+        <div ui-view='sidebar-left' id="sidebar-left" class="col-sm-3"></div>
+        <div ui-view='content-view' id="content" class="col-sm-9"></div>
+      </div>
     </div>
   </div>
 
@@ -43,28 +46,18 @@ window.endpoint = 'http://localhost:5000/';
   <script src="../bower_components/jquery/dist/jquery.js" charset="utf-8"></script>
   <script src="../bower_components/angular/angular.js" charset="utf-8"></script>
   <script src="../bower_components/angular-ui-router/release/angular-ui-router.js" charset="utf-8"></script>
-  <script src="../bower_components/moment/min/moment.min.js" charset="utf-8"></script>
-  <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js" charset="utf-8"></script>
-  <script src="../bower_components/selectize/dist/css/selectize.default.css" charset="utf-8"></script>
   <script src="../bower_components/sweetalert2/dist/sweetalert2.all.min.js" charset="utf-8"></script>
-  <script src="../bower_components/datetimepicker/jquery.datetimepicker.js" charset="utf-8"></script>
-  <!-- Ext Libraries -->
-  <script src="./select.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="../bower_components/select/select.js"></script>
+  <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.1/angular-moment.js"></script>
+
+  <!-- Ext Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+
 
   <!-- Angular Files -->
   <script src='./app.js'></script>
-  <!--Layout -->
-  <script src='./layout/topbar/topbarcontroller.js'></script>
   <!--Service -->
   <script src='./services/projectService.js'></script>
   <script src='./services/taskService.js'></script>
@@ -74,7 +67,7 @@ window.endpoint = 'http://localhost:5000/';
   <script src='./tasks/task.module.js'></script>
   <script src='./tasks/task.controller.js'></script>
   <script src='./projects/project.controller.js'></script>
-
+  <script src='./layout/topbar/topbarcontroller.js'></script>
 
 
 

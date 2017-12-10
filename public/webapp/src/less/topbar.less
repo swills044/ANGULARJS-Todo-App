@@ -1,66 +1,26 @@
 // main: ./style.less
-.btn-default{color: black!important;}
+
 #topbar {
 	background: #e54132; /* Old browsers */
 	background: -moz-linear-gradient(45deg, #e54132 0%, #e74c3c 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(45deg, #e54132 0%,#e74c3c 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(45deg, #e54132 0%,#e74c3c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e54132', endColorstr='#e74c3c',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
 	> div {
-		height: @top-bar-height;
-		display: inline;
 		float: left;
-		text-align: center;
+		height: @top-bar-height;
+		line-height: @top-bar-height;
 	}
-	.container{
-		margin-left: 200px;
-	}
+
 	.material-icons{
+		line-height: @top-bar-height;
 		color: @inverse;
 	}
 
-	.name{
-		width: 10%;
-		//Childeran
-		span {
-			line-height: @top-bar-height;
-			color: @inverse;
-			font-size: 25px;
-			font-weight: bold;
-		}
-	}
 	.logo{
-		width: 10%;
-		//Childeran
 		i.material-icons {
 			font-size: 48px;
-			line-height: @top-bar-height;
-		}
-	}
-	.search{
-		width: 40%;
-		//Childeran
-		line-height: @top-bar-height;
-		color: black !important;
-	}
-	.actions{
-		width: 40%;
-		//Childeran
-		.action{
-			width:50%;
-			display: inline;
-			.addTask{
-				i {
-					margin-left: 10%;
-					float: left;
-					line-height: @top-bar-height;
-				}
-			}
-			.logout{
-				.material-icons{
-					line-height: @top-bar-height;
-				}
-			}
 		}
 	}
 }

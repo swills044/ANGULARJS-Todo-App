@@ -16,20 +16,6 @@
 			$state.go('root.project', {id: item._id});
 		}
 
-		// if (annyang) {
-		// 	var commands = {};
-		// 	rProjects.forEach(function(p){
-		// 		var name = p.Name;
-		// 		commands.name = function(){
-		// 			console.log('ppopopopopo');
-		// 		}
-		// 	})
-		// 	// Add our commands to annyang
-		// 	annyang.addCommands(commands);
-		//
-		// 	// Start listening. You can call this here, or attach this call to an event, button, etc.
-		// 	annyang.start();
-		// }
 
 		$scope.logout = function(){
 

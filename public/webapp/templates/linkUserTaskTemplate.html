@@ -1,0 +1,24 @@
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Link a new user.<small>It's easy!</small></h3>
+          <div class="panel-body">
+            <form role="form">
+    				 <div class="form-group">
+               <label>
+                 Select User
+               </label>
+                <ui-select ng-model="user.selected" theme="bootstrap">
+                  <ui-select-match>{{$select.selected.Name}}</ui-select-match>
+                  <ui-select-choices repeat="u in users | filter: $select.search " >{{u.UserName}}</ui-select-choices>
+                </ui-select>
+    					</div>
+              <input type="submit" value="Confirm" class="btn btn-info btn-danger" ng-click="linkuser(task._id)">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

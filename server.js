@@ -2,14 +2,9 @@
 var express = require('express');
 var mongoose = require('mongoose'); //ORM for Mongodb
 var bodyParser = require('body-parser'); // middleware
-var cookieParser = require('cookie-parser'); // manage sessions
-var passport = require('passport'); // authentication
 
 //Setup application
 var app = express();
-
-//Register Models
-var models = require('./models/Models')(mongoose);
 
 // configure App
 app.use(express.static(__dirname + '/public'));
@@ -22,18 +17,13 @@ app.use(bodyParser.json({
 }));
 
 //Auth Module
-require('./auth');
+require('./routes/auth');
 
 //Register routes
-require('./routes/apiRoutes')(app, models);
-require('./routes/UserRoutes')(app);
-
-
+require('./routes/routes')(app);
 
 //Setup mongodb connection
 mongoose.connect('mongodb://localhost:27017/todoDB');
-var db = mongoose.connection; db.once('open', function(){console.log('DB connected')}); //Check Connection
 
 //Listen on port
 app.listen(process.env.PORT || 5000, function(){console.log('connected!')})
-

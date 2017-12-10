@@ -11,15 +11,6 @@
     <script>
         window.endpoint = 'http://localhost:5000/';
     </script>
-    <style type="text/css">
-        #login-failed {
-            display: none;
-        }
-
-        #register-failed {
-            display: none;
-        }
-    </style>
 </head>
 
 <body class="loginB">
@@ -54,7 +45,7 @@
         </div>
       </div>
       <div class="card-footer">
-        <button type="submit" class="signup-btn" onclick="register(event)">Sign Up</button>
+        <button type="submit" class="signup-btn" onclick="register(event)" id="register-button">Sign Up</button>
       </div>
     </div>
   </div>

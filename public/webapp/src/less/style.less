@@ -8,24 +8,20 @@
 
 
 @import 'variables.less';
-
 @import 'sidebar-left.less';
 @import 'login.less';
 @import 'topbar.less';
 @import 'content.less';
-@import 'project.less';
 
-html {
-  height: 100%;
-}
 
-.section-title{
+#section-title{
+  display: block;
   color: @brand-primary;
   font-family: 'Open Sans', sans-serif;
   font-size: 25px;
   font-weight: 300;
   line-height: 32px;
-  &:hover section-title#add{
-    display: inline;
+  #desc {
+    float: right;
   }
 }
